@@ -1,11 +1,12 @@
 # Load necessary libraries and functions
 library(finnts)
 library(data.table)
-library(igraph)
 library(ggraph)
-library(igraphdata)
 library(tidygraph)
 library(gt)
+library(leafdown)
+library(imola)
+library(rhino)
 library(tidyverse)
 
 theme_tufte_revised <- function(base_size = 11, base_family = "Gill Sans", ticks = TRUE) {
