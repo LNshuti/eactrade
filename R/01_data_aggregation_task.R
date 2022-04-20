@@ -10,14 +10,16 @@ product2digit <-
 countryweb <-
  "https://pkgstore.datahub.io/JohnSnowLabs/country-and-continent-codes-list/country-and-continent-codes-list-csv_csv/data/b7876b7f496677669644f3d1069d3121/country-and-continent-codes-list-csv_csv.csv"
 
-#Get African country codes
+#Get EAC country codes
 country_codes <-
  read.csv(countryweb) %>%
  janitor::clean_names() %>%
- select(continent_code, country_code = three_letter_country_code) %>%
+ select(continent_code,
+        country_code = three_letter_country_code) %>%
+ filter(country_code %in% c("RWA","UGA","TZA","BDI", "COD", "KEN")) %>%
  rename(continent_name =continent_code)
 
-#Combine trade data from 1966 to 2019
+#Combine trade data from 2015 to 2019
 trade_data_all_years <-
  list.files("data/dataverse_files/", recursive = TRUE) %>%
  as_tibble() %>%
@@ -29,7 +31,8 @@ rwanda_trade_df <-
  map(~data.table::fread(file = paste0("data/dataverse_files/",.x)) %>%
        janitor::clean_names() %>% as_tibble() %>%
        mutate_all(as.character) %>%
-       filter(location_code == "RWA")) %>%
+       filter(location_code %in% c("RWA","UGA","TZA","BDI", "COD", "KEN"))
+     ) %>%
  bind_rows() %>% as_tibble() %>% filter(year > 2014)
 
 saveRDS(object = rwanda_trade_df, "data/processed/eac_trade_df_2015_2019.rds")
