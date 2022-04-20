@@ -8,16 +8,15 @@
 - **An edge** is a connection or link between **nodes**.
 
 Given a dataframe with x features, we can express the data in a graph format as follows: 
-
 **A Nodes tibble with features m**
+
 **An esdges tibble with the following columns: from, to, feature 1...n**
 
 #### Methods
 Using the *tidygraph* and *ggraph* packages from R, we explore the following properties: 
 
-- **hclust**
+- **hclust: ** Hierarchical clustering
 - **dendrogram**
-- **graph**
 - **phylo**
 - **data.tree**
 - **Adjacency matrices**
