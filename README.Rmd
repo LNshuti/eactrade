@@ -31,5 +31,13 @@ tn_contig_graph_adj_noloops <-
 
 summary(tn_contig_graph_adj_noloops)
 
+```
 
+
+```{r}
+ggraph(tn_contig_graph_adj_noloops, 'stress') + 
+  geom_node_voronoi(aes(fill = group), max.radius = 1) + 
+  geom_node_point() + 
+  geom_edge_link() + 
+  coord_fixed()
 ```
