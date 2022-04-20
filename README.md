@@ -10,6 +10,8 @@
 ##### Data Source
 We use the World Bank's World Development Indicator and the WITS database from the Harvard data-verse.
 
+
+
 ##### Introduction 
 
 
@@ -29,3 +31,4 @@ We use the World Bank's World Development Indicator and the WITS database from t
 - Katherine Ognyanova. Network analysis with R and igraph: NetSci X Tutorial.
   https://kateto.net/networks-r-igraph
 - Matthew Kay (2021). tidybayes: Tidy Data and Geoms for Bayesian Models. R package version 3.0.2, https://mjskay.github.io/tidybayes/. DOI: 10.5281/zenodo.1308151.
+- The Growth Lab at Harvard University. International Trade Data (SITC, Rev. 2). 2019-05-31. 2019. V5. Harvard Dataverse. URL. https://doi.org/10.7910/DVN/H8SFD2. doi/10.7910/DVN/H8SFD2
