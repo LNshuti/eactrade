@@ -7,6 +7,22 @@
 
 - **An edge** is a connection or link between **nodes**.
 
+##### Data Source
+
+
+##### Introduction 
+
+
+##### Methods 
+
+
+
+#### Conclusions
+
+
+
+#### Further Work
+
 
 #### **References**
 - Sadler, Jesse. Network Analysis with R. https://www.jessesadler.com/post/network-analysis-with-r/
