@@ -8,7 +8,7 @@
 - **An edge** is a connection or link between **nodes**.
 
 ##### Data Source
-
+We use the World Bank's World Development Indicator and the WITS database from the Harvard data-verse.
 
 ##### Introduction 
 
