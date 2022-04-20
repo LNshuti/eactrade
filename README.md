@@ -15,7 +15,7 @@ Given a dataframe with x features, we can express the data in a graph format as 
 #### Methods
 Using the *tidygraph* and *ggraph* packages from R, we explore the following properties: 
 
-- **hclust: ** Hierarchical clustering
+- **hclust:** Hierarchical clustering
 - **dendrogram**
 - **phylo**
 - **data.tree**
