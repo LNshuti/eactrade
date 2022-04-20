@@ -12,6 +12,21 @@ Given a dataframe with x features, we can express the data in a graph format as 
 **A Nodes tibble with features m**
 **An esdges tibble with the following columns: from, to, feature 1...n**
 
+#### Methods
+Using the *tidygraph* and *ggraph* packages from R, we explore the following properties: 
+
+- **hclust**
+- **dendrogram**
+- **graph**
+- **phylo**
+- **data.tree**
+- **Adjacency matrices**
+- **Adjacency lists**
+- **Edge list**
+- **Set memberships**
+- **Incidence matrix**
+
+
 ##### Data Source
 We use the World Bank's World Development Indicator and the WITS database from the Harvard data-verse.
 
