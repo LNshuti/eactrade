@@ -1,0 +1,35 @@
+---
+title: "README"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+repo_ <- "rwandatrade"
+source(paste0(repo_, "/R/manifest.R"))
+```
+
+```{r}
+bp_productname_partner_id <- 
+  read_rds("rwandatrade/processed/rwa_summary.rds") %>%
+  filter(year == 2019 & rank < 25) %>% 
+  rowwise() %>%
+  mutate(partner_id_pad = str_pad(paste0(partner_id, sample.int(100, 1)),
+                                  width = 6, pad = "0", side = "right")) %>%
+  ungroup() %>%
+  unique() %>%
+  select(partner_id_pad, name, imports) %>%
+  spread(partner_id_pad, imports) %>%
+  convert_to_bipartite(id = name)
+
+bp_productname_partner_id[is.na(bp_productname_partner_id)] <- 0
+
+up_products <-bp_productname_partner_id %*% t(bp_productname_partner_id)
+
+tn_contig_graph_adj_noloops <- 
+  graph_from_adjacency_matrix(up_products, weighted = TRUE) %>%
+  simplify(., remove.loops = TRUE)
+
+summary(tn_contig_graph_adj_noloops)
+
+
+```
