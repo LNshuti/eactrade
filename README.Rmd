@@ -4,22 +4,22 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-repo_ <- "rwandatrade"
+repo_ <- "eactrade"
 source(paste0(repo_, "/R/manifest.R"))
 ```
 
 ```{r}
 bp_productname_partner_id <- 
-  read_rds("rwandatrade/processed/rwa_summary.rds") %>%
-  filter(year == 2019 & rank < 25) %>% 
+  read_rds("eactrade/data/processed/eac_trade_df_2015_2019.rds") %>%
+  head(1000) %>% 
   rowwise() %>%
-  mutate(partner_id_pad = str_pad(paste0(partner_id, sample.int(100, 1)),
-                                  width = 6, pad = "0", side = "right")) %>%
+  mutate(partner_id_pad = str_pad(paste0(partner_id, sample.int(1000, 1)),
+                                  width = 11, pad = "0", side = "right")) %>%
   ungroup() %>%
   unique() %>%
-  select(partner_id_pad, name, imports) %>%
-  spread(partner_id_pad, imports) %>%
-  convert_to_bipartite(id = name)
+  select(partner_id_pad, product_id, import_value, year) %>%
+  spread(partner_id_pad, import_value) %>%
+  convert_to_bipartite(id = product_id)
 
 bp_productname_partner_id[is.na(bp_productname_partner_id)] <- 0
 

@@ -31,7 +31,8 @@ eac_trade_df <-
  map(~data.table::fread(file = paste0(repo_, "/data/dataverse_files/",.x)) %>%
        janitor::clean_names() %>% as_tibble() %>%
        mutate_all(as.character) %>%
-       filter(location_code %in% c("RWA","UGA","TZA","BDI", "COD", "KEN"))
+       filter(location_code %in% c("RWA","UGA","TZA","BDI", "COD", "KEN") &
+              partner_code %in% c("RWA","UGA","TZA","BDI", "COD", "KEN"))
      ) %>%
  bind_rows() %>% as_tibble() 
 
