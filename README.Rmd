@@ -23,8 +23,8 @@ dfeac_productname_partner_id <-
   head(10) %>% 
   select(location_product, partner_year, import_value, export_value) %>%
   group_by(location_product, partner_year) %>%
-  summarise(imports = sum(import_value, na.rm = TRUE), 
-            exports = sum(export_value, na.rm = TRUE)) %>%
+  summarise(imports = sum(import_value, na.rm = TRUE)/1000, 
+            exports = sum(export_value, na.rm = TRUE)/1000) %>%
   
   ungroup() %>%
   unique()
@@ -50,28 +50,20 @@ eac_exports_bp[is.na(eac_exports_bp)] <- 0
 
 eac_imports_up <-eac_imports_bp %*% t(eac_imports_bp)
 eac_exports_up <-eac_exports_bp %*% t(eac_exports_bp)
-# 
-# nodes_eac_products <-
-#   as_tbl_graph(up_eac_products) %>%
-#   activate(nodes) %>%
-#   as_tibble()
-# 
-# edges_eac_products <- 
-#   as_tbl_graph(up_eac_products) %>%
-#   activate(edges) %>%
-#   as_tibble()
+
+nodes_eac_products <-
+  as_tbl_graph(eac_imports_up) 
+
+edges_eac_products <-
+  as_tbl_graph(eac_exports_up)
 ```
 
 
 
 ```{r}
-number_of_classes_taken = diag(eac_exports_up)
-diag(eac_exports_up) <- 0 
-# View(personMatrix)
-
-personNet <- igraph::graph.adjacency(eac_exports_up, mode = "undirected")
-
-plot(personNet, vertex.size = 8, vertex.label.cex = .8, vertex.label.color = "black")
+ggraph(nodes_eac_products, layout = 'fr', weights = "weight") + 
+  geom_edge_link() + 
+  geom_node_point()
 ```
 
 
