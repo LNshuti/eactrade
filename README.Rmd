@@ -46,7 +46,6 @@ graph_eac_products <-
   as_tbl_graph(up_eac_products) %>%
    activate(edges) %>%
   as_tibble()
-
 ```
 
 
