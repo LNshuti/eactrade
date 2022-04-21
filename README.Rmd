@@ -44,7 +44,7 @@ up_eac_products <-dfeac_bipartite %*% t(dfeac_bipartite)
 
 graph_eac_products <-
   as_tbl_graph(up_eac_products) %>%
-   activate(edges) %>%
+   activate(nodes) %>%
   as_tibble()
 ```
 
