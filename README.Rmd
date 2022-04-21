@@ -18,8 +18,8 @@ dfeac_productname_partner_id <-
   filter(location_id != partner_id) %>%
   mutate(import_value = as.numeric(import_value), 
          export_value = as.numeric(export_value),
-            location_product = paste0(location_id,"_", product_id),
-            partner_year = paste0(partner_id, "_", year)) %>%
+         location_product = paste0(location_id,"_", product_id),
+         partner_year = paste0(partner_id, "_", year)) %>%
   head(10) %>% 
   select(location_product, partner_year, import_value, export_value) %>%
   group_by(location_product, partner_year) %>%
@@ -31,6 +31,7 @@ dfeac_productname_partner_id <-
   
 eac_imports_bp <-  
   dfeac_productname_partner_id %>%
+  select(location_product, partner_year, imports) %>%
   pivot_wider(id_cols = location_product,
               names_from = partner_year, 
               values_from = c("imports")) %>%
@@ -38,6 +39,7 @@ eac_imports_bp <-
 
 eac_exports_bp <-  
   dfeac_productname_partner_id %>%
+   select(location_product, partner_year, exports) %>%
   pivot_wider(id_cols = location_product,
               names_from = partner_year, 
               values_from = c("exports")) %>%
@@ -58,6 +60,18 @@ eac_exports_up <-eac_exports_bp %*% t(eac_exports_bp)
 #   as_tbl_graph(up_eac_products) %>%
 #   activate(edges) %>%
 #   as_tibble()
+```
+
+
+
+```{r}
+number_of_classes_taken = diag(eac_exports_up)
+diag(eac_exports_up) <- 0 
+# View(personMatrix)
+
+personNet <- igraph::graph.adjacency(eac_exports_up, mode = "undirected")
+
+plot(personNet, vertex.size = 8, vertex.label.cex = .8, vertex.label.color = "black")
 ```
 
 
