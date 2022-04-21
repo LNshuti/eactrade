@@ -11,10 +11,13 @@ source(paste0(repo_, "/R/manifest.R"))
 ```{r}
 dfeac_productname_partner_id <- 
   read_rds("eactrade/data/processed/eac_trade_df_2015_2019.rds") %>%
-  mutate(import_value = as.numeric(import_value)) %>%
+  filter(location_id != partner_id) %>%
+  mutate(import_value = as.numeric(import_value), 
+         export_value = as.numeric(export_value)) %>%
   head(1000) %>% 
-  group_by(partner_id, product_id, year) %>%
-  summarise(imports = sum(import_value, na.rm = TRUE)) %>%
+  group_by(location_id, partner_id, product_id, year) %>%
+  summarise(imports = sum(import_value, na.rm = TRUE), 
+            imports = sum(export_value, na.rm = TRUE)) %>%
   ungroup() %>%
   rowwise() %>%
   mutate(partner_id_pad = str_pad(paste0(partner_id, 
@@ -23,22 +26,26 @@ dfeac_productname_partner_id <-
                                   width = 11, pad = "0", side = "right")
          ) %>%
   ungroup() %>%
-  unique() 
+  unique() %>%
+  rename(from = partner_id, to = location_id)
   
 dfeac_bipartite <-  
   dfeac_productname_partner_id %>%
-  pivot_wider(id_cols =  c("year", "product_id"),
+  pivot_wider(id_cols =  c("year", "product_id", "to", "from"),
               names_from = partner_id_pad, 
               values_from = c("imports")) %>%
-  mutate(year_product = paste0(year, product_id)) %>%
-  select(-year, -product_id) %>%
+  mutate(year_product = paste0(year, product_id, to, from)) %>%
+  select(-year, -product_id, -to, -from ) %>%
   convert_to_bipartite(id = year_product)
 
 dfeac_bipartite[is.na(dfeac_bipartite)] <- 0
 
 up_eac_products <-dfeac_bipartite %*% t(dfeac_bipartite)
 
-graph_eac_products <- as_tbl_graph(up_eac_products)
+graph_eac_products <-
+  as_tbl_graph(up_eac_products) %>%
+   activate(edges) %>%
+  as_tibble()
 
 ```
 
