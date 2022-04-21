@@ -19,8 +19,8 @@ dfeac_productname_partner_id <-
   mutate(import_value = as.numeric(import_value), 
          export_value = as.numeric(export_value),
             location_product = paste0(location_id,"_", product_id),
-            partner_year = paste0(location_id, "_", product_id)) %>%
-  head(100) %>% 
+            partner_year = paste0(partner_id, "_", year)) %>%
+  head(10) %>% 
   select(location_product, partner_year, import_value, export_value) %>%
   group_by(location_product, partner_year) %>%
   summarise(imports = sum(import_value, na.rm = TRUE), 

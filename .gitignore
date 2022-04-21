@@ -40,4 +40,3 @@ vignettes/*.pdf
 
 # large dataverse files
 /data/dataverse_files/*
-
