@@ -19,6 +19,7 @@ As in my [other work](https://github.com/LNshuti/LNSHUTI.github.io), I use the A
 #### **References**
 - Sadler, Jesse. Network Analysis with R. https://www.jessesadler.com/post/network-analysis-with-r/
 - https://cran.r-project.org/web/packages/ggraph/vignettes/tidygraph.html
+- https://www.data-imaginist.com/2017/ggraph-introduction-layouts/
 - Katherine Ognyanova. Network analysis with R and igraph: NetSci X Tutorial.
   https://kateto.net/networks-r-igraph
 - Matthew Kay (2021). tidybayes: Tidy Data and Geoms for Bayesian Models. R package version 3.0.2, https://mjskay.github.io/tidybayes/. DOI: 10.5281/zenodo.1308151.
