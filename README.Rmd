@@ -9,48 +9,60 @@ source(paste0(repo_, "/R/manifest.R"))
 ```
 
 ```{r}
+# Location corresponds to the importing entity(receiving country)
+# Partner_id corresponds to the exporting entity
+# Product ID is a unique identifier from the Harvard Wits database
+
 dfeac_productname_partner_id <- 
   read_rds("eactrade/data/processed/eac_trade_df_2015_2019.rds") %>%
   filter(location_id != partner_id) %>%
   mutate(import_value = as.numeric(import_value), 
-         export_value = as.numeric(export_value)) %>%
-  head(1000) %>% 
-  group_by(location_id, partner_id, product_id, year) %>%
+         export_value = as.numeric(export_value),
+            location_product = paste0(location_id,"_", product_id),
+            partner_year = paste0(location_id, "_", product_id)) %>%
+  head(100) %>% 
+  select(location_product, partner_year, import_value, export_value) %>%
+  group_by(location_product, partner_year) %>%
   summarise(imports = sum(import_value, na.rm = TRUE), 
-            imports = sum(export_value, na.rm = TRUE)) %>%
-  ungroup() %>%
-  rowwise() %>%
-  mutate(partner_id_pad = str_pad(paste0(partner_id, 
-                                         product_id,
-                                         sample.int(1000, 1)),
-                                  width = 11, pad = "0", side = "right")
-         ) %>%
-  ungroup() %>%
-  unique() %>%
-  rename(from = partner_id, to = location_id)
+            exports = sum(export_value, na.rm = TRUE)) %>%
   
-dfeac_bipartite <-  
+  ungroup() %>%
+  unique()
+  
+eac_imports_bp <-  
   dfeac_productname_partner_id %>%
-  pivot_wider(id_cols =  c("year", "product_id", "to", "from"),
-              names_from = partner_id_pad, 
+  pivot_wider(id_cols = location_product,
+              names_from = partner_year, 
               values_from = c("imports")) %>%
-  mutate(year_product = paste0(year, product_id, to, from)) %>%
-  select(-year, -product_id, -to, -from ) %>%
-  convert_to_bipartite(id = year_product)
+  convert_to_bipartite(id = location_product)
 
-dfeac_bipartite[is.na(dfeac_bipartite)] <- 0
+eac_exports_bp <-  
+  dfeac_productname_partner_id %>%
+  pivot_wider(id_cols = location_product,
+              names_from = partner_year, 
+              values_from = c("exports")) %>%
+  convert_to_bipartite(id = location_product)
 
-up_eac_products <-dfeac_bipartite %*% t(dfeac_bipartite)
+eac_imports_bp[is.na(eac_imports_bp)] <- 0
+eac_exports_bp[is.na(eac_exports_bp)] <- 0
 
-graph_eac_products <-
-  as_tbl_graph(up_eac_products) %>%
-   activate(nodes) %>%
-  as_tibble()
+eac_imports_up <-eac_imports_bp %*% t(eac_imports_bp)
+eac_exports_up <-eac_exports_bp %*% t(eac_exports_bp)
+# 
+# nodes_eac_products <-
+#   as_tbl_graph(up_eac_products) %>%
+#   activate(nodes) %>%
+#   as_tibble()
+# 
+# edges_eac_products <- 
+#   as_tbl_graph(up_eac_products) %>%
+#   activate(edges) %>%
+#   as_tibble()
 ```
 
 
 ```{r}
-ggraph(tn_contig_graph_adj_noloops, 'stress') + 
+ggraph(up_eac_products, 'stress') + 
   geom_node_voronoi(aes(fill = group), max.radius = 1) + 
   geom_node_point() + 
   geom_edge_link() + 
