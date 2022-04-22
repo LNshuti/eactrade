@@ -15,14 +15,16 @@ source(paste0(repo_, "/R/manifest.R"))
 
 dfeac_productname_partner_id <- 
   read_rds("eactrade/data/processed/eac_trade_df_2015_2019.rds") %>%
-  filter(location_id != partner_id) %>%
+  filter(location_id != partner_id & year == "2019") %>%
   mutate(import_value = as.numeric(import_value), 
          export_value = as.numeric(export_value),
-         location_product = paste0(location_id,"_", product_id),
-         partner_year = paste0(partner_id, "_", year)) %>%
+         location_product = paste0(location_id,"_", product_id)# ,
+         #partner_year = paste0(partner_id, "_", year)
+         ) %>%
   head(10) %>% 
-  select(location_product, partner_year, import_value, export_value) %>%
-  group_by(location_product, partner_year) %>%
+  select(location_product, partner_id, year, import_value, export_value) %>%
+  #select(location_product, partner_year, import_value, export_value) %>%
+  group_by(location_product, partner_id) %>%
   summarise(imports = sum(import_value, na.rm = TRUE)/1000, 
             exports = sum(export_value, na.rm = TRUE)/1000) %>%
   
@@ -31,17 +33,17 @@ dfeac_productname_partner_id <-
   
 eac_imports_bp <-  
   dfeac_productname_partner_id %>%
-  select(location_product, partner_year, imports) %>%
+  select(location_product, partner_id, imports) %>%
   pivot_wider(id_cols = location_product,
-              names_from = partner_year, 
+              names_from = partner_id, 
               values_from = c("imports")) %>%
   convert_to_bipartite(id = location_product)
 
 eac_exports_bp <-  
   dfeac_productname_partner_id %>%
-   select(location_product, partner_year, exports) %>%
+   select(location_product, partner_id, exports) %>%
   pivot_wider(id_cols = location_product,
-              names_from = partner_year, 
+              names_from = partner_id, 
               values_from = c("exports")) %>%
   convert_to_bipartite(id = location_product)
 
@@ -59,18 +61,13 @@ edges_eac_products <-
 ```
 
 
-
 ```{r}
-ggraph(nodes_eac_products, layout = 'fr', weights = "weight") + 
+ggraph_df <- 
+  dfeac_productname_partner_id %>% 
+  select(-exports) %>%
+  graph_from_data_frame(.)
+
+ggraph(ggraph_df, layout = 'fr', weights = "weight") + 
   geom_edge_link() + 
   geom_node_point()
-```
-
-
-```{r}
-ggraph(up_eac_products, 'stress') + 
-  geom_node_voronoi(aes(fill = group), max.radius = 1) + 
-  geom_node_point() + 
-  geom_edge_link() + 
-  coord_fixed()
 ```

@@ -7,6 +7,9 @@ library(gt)
 library(leafdown)
 library(imola)
 library(rhino)
+library(ggraph)
+library(igraph)
+library(sparklyr)
 library(tidyverse)
 
 theme_tufte_revised <- function(base_size = 11, base_family = "Gill Sans", ticks = TRUE) {
