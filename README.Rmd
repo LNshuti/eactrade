@@ -17,11 +17,11 @@ dfeac_productname_partner_id <-
   read_rds("eactrade/data/processed/eac_trade_df_2015_2019.rds") %>%
   filter(location_id != partner_id & year == "2019") %>%
   mutate(import_value = as.numeric(import_value), 
-         export_value = as.numeric(export_value)#,
-         #location_product = paste0(location_id,"_", product_id)# ,
+         export_value = as.numeric(export_value),
+         location_product = paste0(location_id,"_", product_id)# ,
          #partner_year = paste0(partner_id, "_", year)
          ) %>%
-  head(10) %>% 
+  sample_n(5) %>% 
   select(location_product, partner_id, year, import_value, export_value) %>%
   #select(location_product, partner_year, import_value, export_value) %>%
   group_by(location_product, partner_id) %>%
@@ -33,11 +33,17 @@ dfeac_productname_partner_id <-
   
 eac_imports_bp <-  
   dfeac_productname_partner_id %>%
-  select(location_product, partner_id, imports) %>%
-  pivot_wider(id_cols = location_product,
-              names_from = partner_id, 
-              values_from = c("imports")) %>%
-  convert_to_bipartite(id = location_product)
+  select(location_product, partner_id, weight = imports) %>%
+  as_tbl_graph()
+  # pivot_wider(id_cols = location_product,
+  #             names_from = partner_id, 
+  #             values_from = c("weight")) %>%
+  # convert_to_bipartite(id = location_product)
+
+ggraph(eac_imports_bp, layout = 'kk') + 
+  #geom_edge_link(aes(colour = factor(year))) + 
+  geom_node_point() %>%
+
 
 eac_exports_bp <-  
   dfeac_productname_partner_id %>%
