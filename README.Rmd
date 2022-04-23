@@ -27,42 +27,29 @@ dfeac_productname_partner_id <-
   ungroup() %>%
   #mutate(trade_bal = exports- imports) %>%
   unique() 
+```
+
+
+```{r}
+library(igraph)
+library(graphlayouts)
 
 eac_tradebal_bp <-  
   dfeac_productname_partner_id %>%
   filter(exports > 0 & imports > 0) %>%
   select(from, to, weight = imports) %>%
-  as_tbl_graph(directed = TRUE)
-  
-ggraph(eac_tradebal_bp, layout ="kk") +
-  geom_edge_link() +
-  geom_node_label(aes(label = name))
+  sample_n(100) %>%
+  as_tbl_graph(directed = TRUE) 
 
-ggraph(eac_tradebal_bp, layout = "kk") +
-  geom_edge_diagonal() +
-  geom_node_circle(
-    aes(r = if_else(name < "G", 0.05, 0.1)),
-    fill = "green"
-  ) +
-  geom_node_text(aes(label = name), repel = TRUE) +
-  coord_equal()  # Needed so that circles do not become elongated ellipses
+unweighted_graph <- 
+  ggraph(eac_tradebal_bp, layout = "dh") +
+  geom_edge_link0(aes(edge_width = weight)) +
+  geom_node_label(aes(label = name)) +
+  geom_edge_link(alpha = .25) +
+  theme_graph()
 
-```
+ggsave(unweighted_graph,
+       filename = paste0(repo_, "/outputs/unweighted_graph.png"), 
+       width = 4, height = 4)
 
-
-```{r}
-ggraph_df <- 
-  dfeac_productname_partner_id %>% 
-  select(-exports) %>%
-  graph_from_data_frame(.)
-
-ggraph(ggraph_df, layout = 'fr', weights = "weight") + 
-  geom_edge_link() + 
-  geom_node_point()
-
-
-g1 <- graph.adjacency(cor1$r, weighted=TRUE, mode="lower")
-g1 <- delete.edges(g1, E(g1)[ abs(weight) < 0.3 ])
-plot.igraph(g1, vertex.size=20, edge.width=abs(E(g1)$weight)*8, 
-        edge.color=ifelse(cor1$r > 0, "blue","red"))
 ```
