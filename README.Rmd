@@ -17,8 +17,8 @@ dfeac_productname_partner_id <-
   read_rds("eactrade/data/processed/eac_trade_df_2015_2019.rds") %>%
   filter(location_id != partner_id & year == "2019") %>%
   mutate(import_value = as.numeric(import_value), 
-         export_value = as.numeric(export_value),
-         location_product = paste0(location_id,"_", product_id)# ,
+         export_value = as.numeric(export_value)#,
+         #location_product = paste0(location_id,"_", product_id)# ,
          #partner_year = paste0(partner_id, "_", year)
          ) %>%
   head(10) %>% 
