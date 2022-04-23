@@ -6,12 +6,15 @@
 
 To perform network analysis in R, we use two packages; *tidygraph* and *ggraph*, both of which support common graph data structures like **dendrogram** and **igraph** from the *igraph* R package.
 
-A country is said to have a trade *imbalance* if the country imports more than it exports. 
+A country is said to have a trade *imbalance* if the country imports more than it exports. By calculating the trade balance, we can express trade relationship between countries as an undirected graph a.k.a a **Markov network** in statistical literature.
 
 ```
 Trade balance = imports - exports
 ```
-
+**Properties of Markov Networks**
+--------------------------------
+- All the variables are continuous
+- observations have a multivariate Gaussian distribution with mean $Mu$ and covariance matrix $E$
 
 
 **Data Source**
