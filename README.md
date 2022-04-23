@@ -9,12 +9,14 @@ To perform network analysis in R, we use two packages; *tidygraph* and *ggraph*,
 A country is said to have a trade *imbalance* if the country imports more than it exports. By calculating the trade balance, we can express trade relationship between countries as an undirected graph a.k.a a **Markov network** in statistical literature.
 
 ```
-Trade balance = imports - exports
+Trade balance = exports - imports
 ```
 **Properties of Markov Networks**
 --------------------------------
 - All the variables are continuous
 - observations have a multivariate Gaussian distribution with mean `Mu` and covariance matrix `E`
+
+- We can use the graphical lasso method to estimate parameters. 
 
 
 **Data Source**
@@ -49,6 +51,7 @@ source("R/01_data_aggregation_task.R")
 
 **References**
 --------------
+- Hastie, T., Tibshirani, R., Friedman, J.H. and Friedman, J.H., 2009. The elements of statistical learning: data mining, inference, and prediction (Vol. 2, pp. 1-758). New York: springer.
 - Sadler, Jesse. Network Analysis with R. https://www.jessesadler.com/post/network-analysis-with-r/
 - https://cran.r-project.org/web/packages/ggraph/vignettes/tidygraph.html
 - https://www.data-imaginist.com/2017/ggraph-introduction-layouts/

@@ -29,18 +29,19 @@ dfeac_productname_partner_id <-
             exports = sum(export_value, na.rm = TRUE)) %>%
   
   ungroup() %>%
+  mutate(trade_bal = exports- imports) %>%
   unique()
   
-eac_imports_bp <-  
+eac_tradebal_bp <-  
   dfeac_productname_partner_id %>%
-  select(location_product, partner_id, weight = imports) %>%
+  select(location_product, partner_id, weight = trade_bal) %>%
   as_tbl_graph()
   # pivot_wider(id_cols = location_product,
   #             names_from = partner_id, 
   #             values_from = c("weight")) %>%
   # convert_to_bipartite(id = location_product)
 
-ggraph(eac_imports_bp, layout = 'kk') + 
+ggraph(eac_tradebal_bp, layout = 'kk') + 
   #geom_edge_link(aes(colour = factor(year))) + 
   geom_node_point() %>%
 
@@ -54,16 +55,12 @@ eac_exports_bp <-
   convert_to_bipartite(id = location_product)
 
 eac_imports_bp[is.na(eac_imports_bp)] <- 0
-eac_exports_bp[is.na(eac_exports_bp)] <- 0
 
 eac_imports_up <-eac_imports_bp %*% t(eac_imports_bp)
-eac_exports_up <-eac_exports_bp %*% t(eac_exports_bp)
 
 nodes_eac_products <-
   as_tbl_graph(eac_imports_up) 
 
-edges_eac_products <-
-  as_tbl_graph(eac_exports_up)
 ```
 
 
@@ -76,4 +73,10 @@ ggraph_df <-
 ggraph(ggraph_df, layout = 'fr', weights = "weight") + 
   geom_edge_link() + 
   geom_node_point()
+
+
+g1 <- graph.adjacency(cor1$r, weighted=TRUE, mode="lower")
+g1 <- delete.edges(g1, E(g1)[ abs(weight) < 0.3 ])
+plot.igraph(g1, vertex.size=20, edge.width=abs(E(g1)$weight)*8, 
+        edge.color=ifelse(cor1$r > 0, "blue","red"))
 ```
