@@ -26,12 +26,6 @@ For the purpose of this analysis, we focus on a handful of variables from the da
 - *exports:* amount in dollars of a product that a country exports.
 - *year*
 
-For a full description of the data cleaning process, consult the R code under:
-
-```
-source("R/01_data_aggregation_task.R")
-```
-
 |location_product | partner_id |year     | import_value | export_value|
 :-----------------|:-----------|:--------|:-------------|:------------| 
 |187_670          |116         |  2015   |9916          |         0   |
@@ -40,6 +34,11 @@ source("R/01_data_aggregation_task.R")
 |116_670          |187         |  2019   |0             |      9916   |
 |227_670          |187         |  2018   |13000         |      9011   |
 
+For a full description of the data cleaning process, consult the R code under:
+
+```
+source("R/01_data_aggregation_task.R")
+```
 
 **Conclusions**
 ---------------
