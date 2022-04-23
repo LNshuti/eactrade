@@ -6,9 +6,7 @@
 
 To perform network analysis in R, we use two packages; *tidygraph* and *ggraph*, both of which support common graph data structures like **dendrogram** and **igraph** from the *igraph* R package.
 
-$$
-Trade balance = imports - exports
-$$
+$$Trade balance = imports - exports$$
 A country is said to have a trade *imbalance* if the country imports more than it exports.
 
 
