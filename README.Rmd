@@ -24,13 +24,13 @@ dfeac_productname_partner_id <-
   group_by(from, to, product_id) %>%
   summarise(imports = sum(import_value, na.rm = TRUE), 
             exports = sum(export_value, na.rm = TRUE)) %>%
-  
   ungroup() %>%
-  mutate(trade_bal = exports- imports) %>%
+  #mutate(trade_bal = exports- imports) %>%
   unique() 
 
 eac_tradebal_bp <-  
   dfeac_productname_partner_id %>%
+  filter(exports > 0 & imports > 0) %>%
   select(from, to, weight = imports) %>%
   as_tbl_graph(directed = TRUE)
   
