@@ -1,6 +1,6 @@
 ## Using Network Analysis to Understand International trade
 
-**Definition of terms:**
+**Definitions**
 ------------------------
 **A random graph** has two parameters: *N* and *P* where *N* represents the number of nodes, and *P* the probability distribution that connects a given set of nodes. **A node** is a vertex of a graph while **An edge** is a connection or link between **nodes**.
 
