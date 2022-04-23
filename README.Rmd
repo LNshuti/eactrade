@@ -25,8 +25,8 @@ dfeac_productname_partner_id <-
   select(location_product, partner_id, year, import_value, export_value) %>%
   #select(location_product, partner_year, import_value, export_value) %>%
   group_by(location_product, partner_id) %>%
-  summarise(imports = sum(import_value, na.rm = TRUE)/1000, 
-            exports = sum(export_value, na.rm = TRUE)/1000) %>%
+  summarise(imports = sum(import_value, na.rm = TRUE), 
+            exports = sum(export_value, na.rm = TRUE)) %>%
   
   ungroup() %>%
   unique()
