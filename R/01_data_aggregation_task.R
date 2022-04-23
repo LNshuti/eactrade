@@ -25,10 +25,12 @@ allcountries_trade_df <-
 
 
 eaccountries_trade_df <- 
-  allcountries_trade_df %<%
+  allcountries_trade_df %>%
   inner_join(country_ids, by = c("location_id" = "numeric_code")) %>%
   rename(to = alpha_3_code) %>%
   inner_join(country_ids, by = c("partner_id" = "numeric_code")) %>%
-  rename(from = alpha_3_code) 
+  rename(from = alpha_3_code)  %>%
+  select(-location_id, -partner_id) %>%
+  select(from, to, everything())
 
-saveRDS(object = eac_trade_df, "eactrade/data/processed/eac_trade_df_2015_2019.rds")
+saveRDS(object = eaccountries_trade_df, "eactrade/data/processed/eac_trade_df_2015_2019.rds")
