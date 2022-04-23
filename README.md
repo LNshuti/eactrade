@@ -14,7 +14,7 @@ Trade balance = imports - exports
 **Properties of Markov Networks**
 --------------------------------
 - All the variables are continuous
-- observations have a multivariate Gaussian distribution with mean $Mu$ and covariance matrix $E$
+- observations have a multivariate Gaussian distribution with mean `Mu` and covariance matrix `E`
 
 
 **Data Source**
