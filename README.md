@@ -39,6 +39,17 @@ For the purpose of this analysis, we focus on a handful of variables from the da
 |116_670          |187         |  2019   |0             |      9916   |
 |227_670          |187         |  2018   |13000         |      9011   |
 
+The WITS database identifies countries using ISO3 codes. Below is a crosswalk for EAC countries.
+
+|country                              |	alpha_3_code	numeric_code
+:-------------------------------------|:-----------|:-------------|
+Burundi	                              | BDI	       | 108          |  
+Congo, the Democratic Republic of the	| COD	       | 180          |
+Kenya	                                | KEN	       | 404          |
+Rwanda	                              | RWA	       | 646          |
+Tanzania, United Republic of	        | TZA	       | 834          |
+Uganda	                              | UGA	       | 800          |
+
 For a full description of the data cleaning process, consult the R code under:
 
 ``` r

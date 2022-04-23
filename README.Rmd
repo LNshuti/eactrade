@@ -9,41 +9,48 @@ source(paste0(repo_, "/R/manifest.R"))
 ```
 
 ```{r}
+country_ids <- 
+  read_csv("eactrade/data/countries_codes_and_coordinates.csv") %>%
+  janitor::clean_names() %>%
+  select(alpha_3_code, numeric_code) %>%
+  filter(alpha_3_code %in% c("RWA","UGA","TZA","BDI", "COD", "KEN"))  %>%
+  mutate(numeric_code = as.character(numeric_code))
+
 # Location corresponds to the importing entity(receiving country)
 # Partner_id corresponds to the exporting entity
 # Product ID is a unique identifier from the Harvard Wits database
-
 dfeac_productname_partner_id <- 
   read_rds("eactrade/data/processed/eac_trade_df_2015_2019.rds") %>%
   filter(location_id != partner_id & year == "2019") %>%
   mutate(import_value = as.numeric(import_value), 
-         export_value = as.numeric(export_value),
-         location_product = paste0(location_id,"_", product_id)# ,
+         export_value = as.numeric(export_value)#,
+         #location_product = paste0(location_id,"_", product_id)# ,
          #partner_year = paste0(partner_id, "_", year)
          ) %>%
-  sample_n(5) %>% 
-  select(location_product, partner_id, year, import_value, export_value) %>%
+  sample_n(15) %>% 
+  select(location_id, partner_id, product_id, year, import_value, export_value) %>%
   #select(location_product, partner_year, import_value, export_value) %>%
-  group_by(location_product, partner_id) %>%
+  group_by(location_id, partner_id, product_id) %>%
   summarise(imports = sum(import_value, na.rm = TRUE), 
             exports = sum(export_value, na.rm = TRUE)) %>%
   
   ungroup() %>%
   mutate(trade_bal = exports- imports) %>%
-  unique()
-  
+  unique() %>%
+  left_join(country_ids, by = c("location_id" = "numeric_code")) %>%
+  rename(to = alpha_3_code) %>%
+  left_join(country_ids, by = c("partner_id" = "numeric_code")) %>%
+  rename(from = alpha_3_code) 
+
+
 eac_tradebal_bp <-  
   dfeac_productname_partner_id %>%
-  select(location_product, partner_id, weight = trade_bal) %>%
-  as_tbl_graph()
-  # pivot_wider(id_cols = location_product,
-  #             names_from = partner_id, 
-  #             values_from = c("weight")) %>%
-  # convert_to_bipartite(id = location_product)
-
-ggraph(eac_tradebal_bp, layout = 'kk') + 
-  #geom_edge_link(aes(colour = factor(year))) + 
-  geom_node_point() %>%
+  select(location_id, partner_id, weight = exports) %>%
+  as_tbl_graph(directed = TRUE)
+  
+ggraph(eac_tradebal_bp) +
+  geom_edge_link() +
+  geom_node_label(aes(label = name))
 
 
 eac_exports_bp <-  
