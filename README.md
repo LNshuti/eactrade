@@ -45,8 +45,6 @@ For a full description of the data cleaning process, consult the R code under:
 source("R/01_data_aggregation_task.R")
 ```
 
-**Conclusions**
----------------
 
 
 **References**
