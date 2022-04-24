@@ -60,7 +60,7 @@ ggsave(unweighted_graph,
 countries_xw <- 
   read_csv(paste0(repo_, "/data/countries_codes_and_coordinates.csv")) %>% 
   janitor::clean_names() %>%
-  select(country, alpha_3_code) %>%
+  select(country_code = alpha_3_code, country) %>%
   filter(alpha_3_code %in% c("COM", "AGO", "ERI", "BWA", "CPV", "CAF", 
                              "CMR", "GNQ", "TCD", "ETH", "COD")) 
   

@@ -38,7 +38,7 @@ For the purpose of this analysis, we focus on a handful of variables from the da
 |116_670          |187         |  2019   |0             |      9916   |
 |227_670          |187         |  2018   |13000         |      9011   |
 
-The WITS database identifies countries using ISO3 codes. Below is a crosswalk for EAC countries.
+The WITS database identifies countries using ISO3 codes. Below is a crosswalk for East African countries.
 
 |country                                |	alpha_3_code|	numeric_code |
 :---------------------------------------|:------------|:-------------|
