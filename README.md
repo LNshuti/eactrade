@@ -55,6 +55,11 @@ For a full description of the data cleaning process, consult the R code under:
 source("R/01_data_aggregation_task.R")
 ```
 
+**EDA: Exploratory Data Analysis**
+--------------------------------
+
+Below we plot import trade relationships between a select group of African countries. For this plot, we sum data from 2015 to 2019. Note that the width of the edge represents the amount of imports in dollars from country x to country y for the given time period.
+
 ![](output/unweighted_graph_labs.png)
 
 

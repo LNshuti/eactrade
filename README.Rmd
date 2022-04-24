@@ -61,11 +61,13 @@ countries_xw <-
   read_csv(paste0(repo_, "/data/countries_codes_and_coordinates.csv")) %>% 
   janitor::clean_names() %>%
   select(country_code = alpha_3_code, country) %>%
-  filter(alpha_3_code %in% c("COM", "AGO", "ERI", "BWA", "CPV", "CAF", 
+  filter(country_code %in% c("COM", "AGO", "ERI", "BWA", "CPV", "CAF", 
                              "CMR", "GNQ", "TCD", "ETH", "COD")) 
   
 combined_plt <- 
   grid.arrange(unweighted_graph,
                tableGrob(countries_xw, rows = NULL), 
                heights=c(0.7, 0.3), nrow=2)
+
+                   
 ```
