@@ -40,8 +40,19 @@ eac_tradebal_bp <-
   dfeac_productname_partner_id %>%
   filter(exports > 0 & imports > 0) %>%
   select(from, to, imports) %>%
-  sample_n(100) %>%
+  #sample_n(100) %>%
   as_tbl_graph(directed = TRUE) 
+
+
+eac_tree <- eac_tradebal_bp %>% 
+    activate(nodes) %>% 
+    left_join(dfeac_productname_partner_id %>%
+                filter(from %in% c("AGO", "BDI", "BWA", "CAF",
+                                   "CMR", "COD", "COG", "COM",
+                                   "CPV", "DZA", "ERI","ETH",
+                                   "GNQ", "MYT", "TCD")), 
+              
+              by = c("name" = "to"))
 
 unweighted_graph <- 
   ggraph(eac_tradebal_bp, layout = "dh") +
