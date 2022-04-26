@@ -39,19 +39,29 @@ set.seed(123987)
 eac_tradebal_bp <-  
   dfeac_productname_partner_id %>%
   filter(exports > 0 & imports > 0) %>%
-  select(from, to, imports) %>%
-  sample_n(500) %>%
-  #sample_n(100) %>%
-  as_tbl_graph(directed = TRUE) 
+  mutate(product_origin = paste0(from, "_", product_id)) %>%
+  select(product_origin, to,  imports) %>%
+  spread(product_origin, imports) %>%
+  convert_to_bipartite(id = to) 
+
+eac_tradebal_bp[is.na(eac_tradebal_bp)] <- 0
+
+net_bp <- 
+  graph_from_incidence_matrix(eac_tradebal_bp,weighted=TRUE) %>% 
+  igraph::simplify(., remove.loops=TRUE) %>% 
+  as_tbl_graph() %>%
+  activate(nodes) %>% 
+  left_join(xy_hosp %>% 
+              select(name = prvnumgrp,mname),"name") %>% 
+  mutate(label = ifelse(!is.na(mname),mname,name))
 
 unweighted_graph <- 
-  ggraph(eac_tradebal_bp) +
-  geom_edge_link0(aes(colour = name), edge_colour = "grey66") +
-  geom_node_label(aes(label = name), family = "serif", repel = TRUE) +
-  #scale_edge_width_continuous() +
-  theme_graph() + 
-  labs(label = "") +
-  theme(legend.position = "bottom")
+  ggraph(net_bp, layout='lgl') +
+  geom_edge_link(aes(width = weight,alpha=weight),show.legend = FALSE) + 
+  geom_node_point(aes(colour=type), cex = 6) +
+  geom_node_text(aes(label = label),cex = 3) +
+  #remove_all_axes  + 
+  theme(legend.position = "none")  
 
 # ggsave(unweighted_graph,
 #        filename = paste0(repo_, "/outputs/unweighted_graph.png"), 
@@ -73,4 +83,19 @@ dev.off()
 ggsave(combined_plt,
        filename = paste0(repo_, "/output/combined_plt.png"),
        width = 8, height = 10)
+```
+
+
+
+```{r, fig.cap = "Visualization of ZIP-Hospital Patient Flows as a Bipartite Network Object", fig.width = 8, fig.height=8,fig.pos="H", echo = FALSE}
+set.seed(1)
+net_bp %>% 
+  ggraph(layout='lgl') + 
+  #scale_x_continuous(limits = c(-15,10)) + 
+  #scale_y_continuous(limits = c(-20,6)) +
+  geom_edge_link(aes(width = weight,alpha=weight),show.legend = FALSE) + 
+  geom_node_point(aes(colour=type), cex = 6) +
+  geom_node_text(aes(label = label),cex = 3) +
+  remove_all_axes  + 
+  theme(legend.position = "none")  
 ```
