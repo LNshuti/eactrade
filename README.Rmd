@@ -40,22 +40,22 @@ eac_tradebal_bp <-
   dfeac_productname_partner_id %>%
   filter(exports > 0 & imports > 0) %>%
   select(from, to, imports) %>%
+  sample_n(500) %>%
   #sample_n(100) %>%
   as_tbl_graph(directed = TRUE) 
 
 unweighted_graph <- 
-  ggraph(eac_tradebal_bp, layout = "dh") +
-  geom_edge_link0(aes(edge_width = imports), edge_colour = "grey66") +
+  ggraph(eac_tradebal_bp) +
+  geom_edge_link0(aes(colour = name), edge_colour = "grey66") +
   geom_node_label(aes(label = name), family = "serif", repel = TRUE) +
-  geom_edge_link(alpha = .25) +
-  scale_edge_width_continuous() +
+  #scale_edge_width_continuous() +
   theme_graph() + 
   labs(label = "") +
   theme(legend.position = "bottom")
 
-ggsave(unweighted_graph,
-       filename = paste0(repo_, "/outputs/unweighted_graph.png"), 
-       width = 4, height = 4)
+# ggsave(unweighted_graph,
+#        filename = paste0(repo_, "/outputs/unweighted_graph.png"), 
+#        width = 4, height = 4)
 
 countries_xw <- 
   read_csv(paste0(repo_, "/data/countries_codes_and_coordinates.csv")) %>% 
@@ -63,11 +63,14 @@ countries_xw <-
   select(country_code = alpha_3_code, country) %>%
   filter(country_code %in% c("COM", "AGO", "ERI", "BWA", "CPV", "CAF", 
                              "CMR", "GNQ", "TCD", "ETH", "COD")) 
-  
 combined_plt <- 
   grid.arrange(unweighted_graph,
                tableGrob(countries_xw, rows = NULL), 
-               heights=c(0.7, 0.3), nrow=2)
+               heights=c(2, 0.3), nrow=2)
 
-                   
+dev.off()
+
+ggsave(combined_plt,
+       filename = paste0(repo_, "/output/combined_plt.png"),
+       width = 8, height = 10)
 ```
