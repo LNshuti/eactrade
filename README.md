@@ -4,7 +4,9 @@
 ------------------------
 **A random graph** has two parameters: *N* and *P* where *N* represents the number of nodes, and *P* the probability distribution that connects a given set of nodes. **A node** is a vertex of a graph while **An edge** is a connection or link between **nodes**.
 
-To perform network analysis in R, we use two packages; *tidygraph* and *ggraph*, both of which support common graph data structures like **dendrogram** and **igraph** from the *igraph* R package.
+To perform network analysis in R, we use two packages; *tidygraph* and *ggraph*, both of which support common graph data structures implemented in the *igraph* R package.
+
+One property of great interest in network analysis is **Community** defined as a subset of nodes with stronger connections than usual. In our analysis, we attempt to detect communities of trading partners based on the flow of goods betweeen countries. For example, we would like to test whether we can infer existing communities such as the **EAC** and **ECOWAS** based on the data.
 
 A country is said to have a trade *imbalance* if the country imports more than it exports. By calculating the trade balance, we can express trade relationship between countries as an undirected graph a.k.a a **Markov network** in statistical literature.
 
