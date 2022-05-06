@@ -9,9 +9,12 @@ library(imola)
 library(rhino)
 library(ggraph)
 library(igraph)
+library(graphlayouts)
+library(gridExtra)
 library(sparklyr)
 library(networkD3)
 library(tidyverse)
+library(arrow, warn.conflicts = FALSE)
 
 theme_tufte_revised <- function(base_size = 11, base_family = "Gill Sans", ticks = TRUE) {
   

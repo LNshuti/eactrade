@@ -6,6 +6,13 @@ output: html_document
 ```{r setup, include=FALSE}
 repo_ <- "eactrade"
 source(paste0(repo_, "/R/manifest.R"))
+
+countries_codes <- 
+  read_csv_arrow(paste0(repo_, "/processed/rwa_sum_features.csv"), 
+                as_data_frame = FALSE)
+
+# file_path <- tempfile()
+# write_parquet(paste0("../rwandatrade/processed/rwa_summary.csv"), x = countries_codes)
 ```
 
 ```{r}
@@ -36,11 +43,20 @@ library(graphlayouts)
 library(gridExtra)
 
 set.seed(123987)
+
+eac_tradebal_df <-  
+  dfeac_productname_partner_id %>%
+  filter(exports > 0 & imports > 0) %>%
+  mutate(product_origin = paste0(from, "_", product_id)) %>%
+  select(product_origin, to,  imports) %>%
+  filter(to == "BDI") 
+
 eac_tradebal_bp <-  
   dfeac_productname_partner_id %>%
   filter(exports > 0 & imports > 0) %>%
   mutate(product_origin = paste0(from, "_", product_id)) %>%
   select(product_origin, to,  imports) %>%
+  filter(to == "BDI") %>%
   spread(product_origin, imports) %>%
   convert_to_bipartite(id = to) 
 
@@ -51,15 +67,14 @@ net_bp <-
   igraph::simplify(., remove.loops=TRUE) %>% 
   as_tbl_graph() %>%
   activate(nodes) %>% 
-  left_join(xy_hosp %>% 
-              select(name = prvnumgrp,mname),"name") %>% 
-  mutate(label = ifelse(!is.na(mname),mname,name))
+  left_join(eac_tradebal_df,by = c("name" = "product_origin")) 
 
 unweighted_graph <- 
   ggraph(net_bp, layout='lgl') +
-  geom_edge_link(aes(width = weight,alpha=weight),show.legend = FALSE) + 
-  geom_node_point(aes(colour=type), cex = 6) +
-  geom_node_text(aes(label = label),cex = 3) +
+  # geom_edge_link(data = net_bp, 
+  #                aes(width = weight,alpha=weight),show.legend = FALSE) + 
+  geom_node_point(aes(colour=to), cex = 6) +
+  geom_node_text(aes(label = to),cex = 3) +
   #remove_all_axes  + 
   theme(legend.position = "none")  
 
