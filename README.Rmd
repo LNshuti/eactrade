@@ -4,12 +4,10 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-repo_ <- "eactrade"
-source(paste0(repo_, "/R/manifest.R"))
+source("R/manifest.R")
 
 countries_codes <- 
-  read_csv_arrow(paste0(repo_, "/processed/rwa_sum_features.csv"), 
-                as_data_frame = FALSE)
+  read_csv("processed/rwa_sum_features.csv")
 
 # file_path <- tempfile()
 # write_parquet(paste0("../rwandatrade/processed/rwa_summary.csv"), x = countries_codes)
@@ -20,15 +18,14 @@ countries_codes <-
 # Partner_id corresponds to the exporting entity
 # Product ID is a unique identifier from the Harvard Wits database
 dfeac_productname_partner_id <- 
-  read_rds("eactrade/data/processed/eac_trade_df_2015_2019.rds") %>%
+  read_rds("data/processed/eac_trade_df_2015_2019.rds") %>%
   mutate(import_value = as.numeric(import_value), 
-         export_value = as.numeric(export_value)#,
-         #location_product = paste0(location_id,"_", product_id)# ,
-         #partner_year = paste0(partner_id, "_", year)
+         export_value = as.numeric(export_value)
          ) %>%
-  select(from, to, product_id, year, import_value, export_value) %>%
-  #select(location_product, partner_year, import_value, export_value) %>%
-  group_by(from, to, product_id) %>%
+  select(from, to, 
+         #product_id,
+         year, import_value, export_value) %>%
+  group_by(from, to) %>%
   summarise(imports = sum(import_value, na.rm = TRUE), 
             exports = sum(export_value, na.rm = TRUE)) %>%
   ungroup() %>%
@@ -46,18 +43,11 @@ set.seed(123987)
 
 eac_tradebal_df <-  
   dfeac_productname_partner_id %>%
-  filter(exports > 0 & imports > 0) %>%
-  mutate(product_origin = paste0(from, "_", product_id)) %>%
-  select(product_origin, to,  imports) %>%
-  filter(to == "BDI") 
+  select(from, to,  imports) 
 
 eac_tradebal_bp <-  
-  dfeac_productname_partner_id %>%
-  filter(exports > 0 & imports > 0) %>%
-  mutate(product_origin = paste0(from, "_", product_id)) %>%
-  select(product_origin, to,  imports) %>%
-  filter(to == "BDI") %>%
-  spread(product_origin, imports) %>%
+  eac_tradebal_df %>%
+  spread(from, imports) %>%
   convert_to_bipartite(id = to) 
 
 eac_tradebal_bp[is.na(eac_tradebal_bp)] <- 0
@@ -66,17 +56,30 @@ net_bp <-
   graph_from_incidence_matrix(eac_tradebal_bp,weighted=TRUE) %>% 
   igraph::simplify(., remove.loops=TRUE) %>% 
   as_tbl_graph() %>%
-  activate(nodes) %>% 
-  left_join(eac_tradebal_df,by = c("name" = "product_origin")) 
+  activate(nodes) %>%
+  as_tibble() %>%
+  left_join(eac_tradebal_df,by = c("name" = "to")) %>%
+  filter(type == TRUE) %>%
+  select(-type)
 
 unweighted_graph <- 
-  ggraph(net_bp, layout='lgl') +
-  # geom_edge_link(data = net_bp, 
-  #                aes(width = weight,alpha=weight),show.legend = FALSE) + 
-  geom_node_point(aes(colour=to), cex = 6) +
-  geom_node_text(aes(label = to),cex = 3) +
+  net_bp %>%
+ 
+  graph_from_data_frame(.) %>%
+  ggraph(.) +
+  #geom_edge_link(aes(width = weight)) + 
+  geom_node_point(aes(colour=name), cex = 6) +
+  geom_node_text(aes(label = name),cex = 3) +
   #remove_all_axes  + 
   theme(legend.position = "none")  
+
+
+graph <- graph_from_data_frame(highschool)
+
+# Not specifying the layout - defaults to "auto"
+ggraph(unweighted_graph) + 
+    geom_edge_link(aes(colour = factor(from))) + 
+    geom_node_point()
 
 # ggsave(unweighted_graph,
 #        filename = paste0(repo_, "/outputs/unweighted_graph.png"), 
