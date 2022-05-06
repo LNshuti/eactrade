@@ -5,23 +5,19 @@ output: html_document
 
 ```{r setup, include=FALSE}
 source("R/manifest.R")
-
-countries_codes <- 
-  read_csv("processed/rwa_sum_features.csv")
-
-# file_path <- tempfile()
-# write_parquet(paste0("../rwandatrade/processed/rwa_summary.csv"), x = countries_codes)
 ```
 
 ```{r}
+countries_codes <- 
+  read_csv("processed/rwa_sum_features.csv")
+
 # Location corresponds to the importing entity(receiving country)
 # Partner_id corresponds to the exporting entity
 # Product ID is a unique identifier from the Harvard Wits database
 dfeac_productname_partner_id <- 
   read_rds("data/processed/eac_trade_df_2015_2019.rds") %>%
   mutate(import_value = as.numeric(import_value), 
-         export_value = as.numeric(export_value)
-         ) %>%
+         export_value = as.numeric(export_value)) %>%
   select(from, to, 
          #product_id,
          year, import_value, export_value) %>%
@@ -29,25 +25,37 @@ dfeac_productname_partner_id <-
   summarise(imports = sum(import_value, na.rm = TRUE), 
             exports = sum(export_value, na.rm = TRUE)) %>%
   ungroup() %>%
-  #mutate(trade_bal = exports- imports) %>%
+  mutate(trade_bal = abs(exports- imports)) %>%
   unique() 
+
+countries_of_inter <- 
+  dfeac_productname_partner_id %>% 
+  select(from, to) %>% 
+  unique()
+
+countries_v <-
+  c(countries_of_inter$from, countries_of_inter$to) %>% 
+  unique()
+
+countries_xw <- 
+  read_csv("data/countries_codes_and_coordinates.csv") %>% 
+  janitor::clean_names() %>%
+  select(country_code = alpha_3_code, country)  %>% 
+  filter(country_code %in% countries_v)
+
 ```
 
 
 ```{r}
-library(igraph)
-library(graphlayouts)
-library(gridExtra)
-
 set.seed(123987)
-
 eac_tradebal_df <-  
   dfeac_productname_partner_id %>%
-  select(from, to,  imports) 
+  select(from, to,  trade_bal) %>%
+  mutate_at(.vars = c("to", "from"), as.factor)
 
 eac_tradebal_bp <-  
   eac_tradebal_df %>%
-  spread(from, imports) %>%
+  spread(from, trade_bal) %>%
   convert_to_bipartite(id = to) 
 
 eac_tradebal_bp[is.na(eac_tradebal_bp)] <- 0
@@ -62,58 +70,17 @@ net_bp <-
   filter(type == TRUE) %>%
   select(-type)
 
-unweighted_graph <- 
-  net_bp %>%
- 
-  graph_from_data_frame(.) %>%
-  ggraph(.) +
-  #geom_edge_link(aes(width = weight)) + 
-  geom_node_point(aes(colour=name), cex = 6) +
-  geom_node_text(aes(label = name),cex = 3) +
-  #remove_all_axes  + 
-  theme(legend.position = "none")  
-
-
-graph <- graph_from_data_frame(highschool)
-
 # Not specifying the layout - defaults to "auto"
-ggraph(unweighted_graph) + 
-    geom_edge_link(aes(colour = factor(from))) + 
-    geom_node_point()
-
-# ggsave(unweighted_graph,
-#        filename = paste0(repo_, "/outputs/unweighted_graph.png"), 
-#        width = 4, height = 4)
-
-countries_xw <- 
-  read_csv(paste0(repo_, "/data/countries_codes_and_coordinates.csv")) %>% 
-  janitor::clean_names() %>%
-  select(country_code = alpha_3_code, country) %>%
-  filter(country_code %in% c("COM", "AGO", "ERI", "BWA", "CPV", "CAF", 
-                             "CMR", "GNQ", "TCD", "ETH", "COD")) 
-combined_plt <- 
-  grid.arrange(unweighted_graph,
-               tableGrob(countries_xw, rows = NULL), 
-               heights=c(2, 0.3), nrow=2)
-
-dev.off()
-
-ggsave(combined_plt,
-       filename = paste0(repo_, "/output/combined_plt.png"),
-       width = 8, height = 10)
-```
-
-
-
-```{r, fig.cap = "Visualization of ZIP-Hospital Patient Flows as a Bipartite Network Object", fig.width = 8, fig.height=8,fig.pos="H", echo = FALSE}
-set.seed(1)
-net_bp %>% 
-  ggraph(layout='lgl') + 
-  #scale_x_continuous(limits = c(-15,10)) + 
-  #scale_y_continuous(limits = c(-20,6)) +
-  geom_edge_link(aes(width = weight,alpha=weight),show.legend = FALSE) + 
-  geom_node_point(aes(colour=type), cex = 6) +
-  geom_node_text(aes(label = label),cex = 3) +
-  remove_all_axes  + 
+unweighted_graph <- 
+  graph_from_data_frame(net_bp) %>% 
+  ggraph(layout='lgl') +
+  geom_edge_link(alpha = .25, 
+                 aes(width = trade_bal), show.legend = FALSE) +
+  geom_node_point() +
+  geom_node_text(aes(label = name), repel = TRUE) +
   theme(legend.position = "none")  
+
+ggsave(unweighted_graph,
+       filename = "output/unweighted_graph.png",
+       width = 4, height = 4)
 ```
