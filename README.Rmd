@@ -82,5 +82,7 @@ unweighted_graph <-
 
 ggsave(unweighted_graph,
        filename = "output/unweighted_graph.png",
-       width = 4, height = 4)
+       width = 3, height = 3)
+
+
 ```
