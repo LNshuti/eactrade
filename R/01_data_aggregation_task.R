@@ -1,8 +1,7 @@
-repo_ <- "eactrade"
-source(paste0(repo_, "/R/manifest.R"))
+suppressMessages(suppressWarnings(source("R/manifest.R")))
 
 country_ids <- 
-  read_csv("eactrade/data/countries_codes_and_coordinates.csv") %>%
+  read_csv("data/countries_codes_and_coordinates.csv") %>%
   janitor::clean_names() %>%
   select(alpha_3_code, numeric_code) %>%
   filter(alpha_3_code %in% c("RWA","UGA","TZA","BDI", "COD", "KEN","ZMB", "ZWE", "UGA", "TUN",
