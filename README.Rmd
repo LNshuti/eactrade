@@ -60,25 +60,22 @@ eac_tradebal_bp <-
 
 eac_tradebal_bp[is.na(eac_tradebal_bp)] <- 0
 
-net_bp <- 
-  graph_from_incidence_matrix(eac_tradebal_bp,weighted=TRUE) %>% 
-  igraph::simplify(., remove.loops=TRUE) %>% 
-  as_tbl_graph() %>%
-  activate(nodes) %>%
-  as_tibble() %>%
-  left_join(eac_tradebal_df,by = c("name" = "to")) %>%
-  filter(type == TRUE) %>%
-  select(-type)
+up_eac_tradebal <-eac_tradebal_bp %*% t(eac_tradebal_bp)
+# Get a weighted version (i.e., continuous fraction of patients, rather than using threshold)
+up_eac_tradebal <- eac_tradebal_bp %*% t(eac_tradebal_bp>0)
+up_zip_w <- up_eac_tradebal / diag(up_eac_tradebal)
+# This just uses the binary "connected"
+net_ex <- 
+  graph_from_adjacency_matrix(up_eac_tradebal, weighted = TRUE,mode="undirected") %>%
+  igraph::simplify(.)
+# This uses the fraction shared
+net_ex_weighted <- 
+  graph_from_adjacency_matrix(up_zip_w, weighted = TRUE,mode="undirected") %>%
+  igraph::simplify(.)
 
 # Not specifying the layout - defaults to "auto"
 unweighted_graph <- 
-  graph_from_data_frame(net_bp) %>% 
-  ggraph(layout='lgl') +
-  geom_edge_link(alpha = .25, 
-                 aes(width = trade_bal), show.legend = FALSE) +
-  geom_node_point() +
-  geom_node_text(aes(label = name), repel = TRUE) +
-  theme(legend.position = "none")  
+  plot(net_ex_weighted)
 
 ggsave(unweighted_graph,
        filename = "output/unweighted_graph.png",
@@ -86,3 +83,4 @@ ggsave(unweighted_graph,
 
 
 ```
+
