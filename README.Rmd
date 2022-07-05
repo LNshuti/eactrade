@@ -73,9 +73,13 @@ net_ex_weighted <-
   graph_from_adjacency_matrix(up_zip_w, weighted = TRUE,mode="undirected") %>%
   igraph::simplify(.)
 
+
+png('output/unweighted_graph.png')
 # Not specifying the layout - defaults to "auto"
-unweighted_graph <- 
-  plot(net_ex_weighted)
+ 
+plot(net_ex_weighted)
+
+dev.off()
 
 ggsave(unweighted_graph,
        filename = "output/unweighted_graph.png",
