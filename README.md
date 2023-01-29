@@ -64,6 +64,8 @@ Below we plot trade relationships between a select group of African countries. F
 
 ![](output/unweighted_graph.png)
 
+**Time Series Representation**
+--------------
 
 **References**
 --------------
