@@ -96,10 +96,14 @@ combined_df = pl.concat([rwa_df, uga_df, ken_df, bdi_df, tza_df])
 # Plot bar plot with each subfigure representing a country code 
 # Use trade_bal_by_population as the y variable
 # write the code 
-fig, ax = plt.subplots(figsize=(4, 3))
+# Incease the size of the figure
+# Increase the overall plot size especially the height
+# Plot bar plot andsave plot as png to output folder. Use seaborn for styling
+
+fig, ax = plt.subplots(figsize=(4, 6))
 sns.set_style("whitegrid")
 sns.catplot(x='trade_bal_by_population', y='partner_code', data=combined_df.to_pandas(), kind='bar', col='location_code')
-plt.savefig('../output/top10partners_all.png', dpi=300, bbox_inches='tight')
+plt.savefig('../output/top10partners_all.png', bbox_inches='tight')
 
 # Plot bar plot andsave plot as png to output folder. Use seaborn for styling
 # fig, ax = plt.subplots(figsize=(10, 6))
