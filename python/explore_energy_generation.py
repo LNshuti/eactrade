@@ -91,9 +91,27 @@ plot_top10_partners(bdi_df, 'BDI')
 plot_top10_partners(tza_df, 'TZA')
 
 # Combine the five datasets 
-combined_df = pl.concat([rwa_df, uga_df])
+combined_df = pl.concat([rwa_df, uga_df, ken_df, bdi_df, tza_df])
 #rwa_uga_df = combined_df.groupby(['location_code'])['trade_bal_by_population'].sum().reset_index()
-print(combined_df.head(10))
+print(combined_df)
+
+aggregated_df = (
+    combined_df
+    .groupby(['location_code'])
+    .agg(
+        pl.col('trade_bal_by_population').mean().alias('avg_trade_bal_per_capita')
+    )
+)
+
+print(aggregated_df)
+
+# Convert polars table to png and save to output 
+# Write the code
+aggregated_df.to_pandas().plot.barh()
+plt.savefig('../output/avg_trade_bal_per_capita.png', dpi=300, bbox_inches='tight')
+
+# Plot bar plot with each subfigure representing a country code
+
 
 # combined_ken_tza = pl.concat([ken_df, tza_df])
 # combined_ken_tza_df = combined_ken_tza.groupby(['location_code'])['trade_bal_by_population'].sum().reset_index()
