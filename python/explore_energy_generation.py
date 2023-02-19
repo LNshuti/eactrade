@@ -95,7 +95,23 @@ idn_df = top10_products(labelled_df, 'IDN')
 khm_df = top10_products(labelled_df, 'KHM')
 
 ### OPEC 
-
+#### Algeria, Angola, Congo, Equatorial Guinea, Gabon, Iran, Iraq, Kuwait, Libya, Nigeria, Qatar, Saudi Arabia, 
+#### United Arab Emirates, Venezuela, and Yemen
+dza_df = top10_products(labelled_df, 'DZA')
+ago_df = top10_products(labelled_df, 'AGO')
+cog_df = top10_products(labelled_df, 'COG')
+gnq_df = top10_products(labelled_df, 'GNQ')
+gab_df = top10_products(labelled_df, 'GAB')
+irn_df = top10_products(labelled_df, 'IRN')
+irq_df = top10_products(labelled_df, 'IRQ')
+kwt_df = top10_products(labelled_df, 'KWT')
+lby_df = top10_products(labelled_df, 'LBY')
+nga_df = top10_products(labelled_df, 'NGA')
+qat_df = top10_products(labelled_df, 'QAT')
+sau_df = top10_products(labelled_df, 'SAU')
+are_df = top10_products(labelled_df, 'ARE')
+ven_df = top10_products(labelled_df, 'VEN')
+yem_df = top10_products(labelled_df, 'YEM')
 
 ### EU 
 
@@ -153,6 +169,23 @@ plot_top10_partners(phl_df, 'PHL')
 plot_top10_partners(mys_df, 'MYS')
 plot_top10_partners(idn_df, 'IDN')
 plot_top10_partners(khm_df, 'KHM')
+
+plot_top10_partners(dza_df, 'DZA')
+plot_top10_partners(ago_df, 'AGO')
+plot_top10_partners(cog_df, 'COG')
+plot_top10_partners(gnq_df, 'GNQ')
+plot_top10_partners(gab_df, 'GAB')
+plot_top10_partners(irn_df, 'IRN')
+plot_top10_partners(irq_df, 'IRQ')
+plot_top10_partners(kwt_df, 'KWT')
+plot_top10_partners(lby_df, 'LBY')
+plot_top10_partners(nga_df, 'NGA')
+plot_top10_partners(qat_df, 'QAT')
+plot_top10_partners(sau_df, 'SAU')
+plot_top10_partners(are_df, 'ARE')
+plot_top10_partners(ven_df, 'VEN')
+plot_top10_partners(yem_df, 'YEM')
+
 # Combine the five datasets 
 combined_df = pl.concat([rwa_df, uga_df, ken_df, bdi_df, tza_df])
 #rwa_uga_df = combined_df.groupby(['location_code'])['trade_bal_by_population'].sum().reset_index()
@@ -217,6 +250,29 @@ plt.title('Trade balance per capita in USD')
 plt.xlabel('USD')
 plt.ylabel('Country')
 plt.savefig('../output/avg_trade_bal_per_capita_asean.png', dpi=300, bbox_inches='tight')
+
+
+
+opec_df = pl.concat([dza_df, ago_df, cog_df, gnq_df, gab_df, irn_df, irq_df, kwt_df, lby_df, nga_df, qat_df, sau_df, are_df, ven_df, yem_df])
+aggregated_opec_df = (
+    opec_df
+    .groupby(['location_code'])
+    .agg(
+        pl.col('trade_bal_by_population').mean().alias('avg_trade_bal_per_capita')
+    ) )
+
+print(aggregated_opec_df)
+
+# Convert polars table to png and save to output 
+# Write the code
+fig, ax = plt.subplots(figsize=(5, 3))
+sns.set_style("whitegrid")
+sns.factorplot(x='avg_trade_bal_per_capita', y='location_code', data=aggregated_opec_df.to_pandas(), kind='bar')
+plt.title('Trade balance per capita in USD')
+plt.xlabel('USD')
+plt.ylabel('Country')
+plt.savefig('../output/avg_trade_bal_per_capita_opec.png', dpi=300, bbox_inches='tight')
+
 # Plot bar plot with each subfigure representing a country code
 
 
