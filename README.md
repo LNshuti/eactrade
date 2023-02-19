@@ -25,6 +25,10 @@ Below we plot trade relationships between a select group of African countries. F
 
 ![](output/top10partners_rwa.png) ![](output/top10partners_UGA.png) ![](output/top10partners_KEN.png) ![](output/top10partners_BDI.png) ![](output/top10partners_TZA.png) 
 
+
+In order to compare apples to apples, we need to weight the trade balance by population. This is because countries with larger populations tend to have larger trade balances. 
+
+
 **References**
 --------------
 - Use Vaex and Streamlit to accomodate very large file sizes. https://vaex.io/blog/vaex-plus-streamlit-where-simplicity-meets-big-data

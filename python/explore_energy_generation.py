@@ -44,6 +44,9 @@ ken_df = top10_products(labelled_df, 'KEN')
 bdi_df = top10_products(labelled_df, 'BDI')
 tza_df = top10_products(labelled_df, 'TZA')
 
+# Create a function that returns the top 10 trade partners by trade balance weighted by population for a given location_code
+
+
 # Convert the following code into a function 
 # The function takes a dataframe and a location_code as input
 # The function plots a barplot of the top 10 trade partners for the location_code
