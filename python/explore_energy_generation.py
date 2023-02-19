@@ -60,7 +60,7 @@ def plot_top10_partners(df, location_code):
     fig, ax = plt.subplots(figsize=(5, 3))
     sns.set_style("whitegrid")
     sns.factorplot(x='trade_balance_millions', y='partner_code', data=top10.to_pandas(), palette='Blues_d', kind='bar')
-    plt.title('Top 10 Partners for ' + location_code)
+    plt.title(location_code)
     plt.xlabel('Trade Balance In Millions of USD')
     plt.ylabel('')
     plt.savefig('../output/top10partners_' + location_code + '.png', dpi=300, bbox_inches='tight')
@@ -70,6 +70,10 @@ plot_top10_partners(rwa_df, 'RWA')
 plot_top10_partners(uga_df, 'UGA')
 plot_top10_partners(ken_df, 'KEN')
 plot_top10_partners(bdi_df, 'BDI')
+
+# import openai 
+# import os 
+# os.environ["OPENAI_API_KEY"] = ""
 # Plot bar plot andsave plot as png to output folder. Use seaborn for styling
 # fig, ax = plt.subplots(figsize=(10, 6))
 # sns.set_style("whitegrid")
