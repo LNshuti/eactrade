@@ -104,6 +104,7 @@ combined_df = pl.concat([rwa_df, uga_df])
 fig, ax = plt.subplots(figsize=(4, 6))
 sns.set_style("whitegrid")
 sns.catplot(x='trade_bal_by_population', y='partner_code', data=combined_df.to_pandas(), kind='bar', col='location_code')
+plt.xlabel('Trade Balance in USD/Population')
 plt.savefig('../output/top10partners_all.png', bbox_inches='tight')
 
 # Plot bar plot andsave plot as png to output folder. Use seaborn for styling
