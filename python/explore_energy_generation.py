@@ -80,8 +80,19 @@ sen_df = top10_products(labelled_df, 'SEN')
 bfa_df = top10_products(labelled_df, 'BFA')
 ben_df = top10_products(labelled_df, 'BEN')
 gmb_df = top10_products(labelled_df, 'GMB')
+tgo_df = top10_products(labelled_df, 'TGO')
+civ_df = top10_products(labelled_df, 'CIV')
+gnb_df = top10_products(labelled_df, 'GNB')
+lbr_df = top10_products(labelled_df, 'LBR')
 
 ### ASEAN 
+vnm_df = top10_products(labelled_df, 'VNM')
+sgp_df = top10_products(labelled_df, 'SGP')
+tha_df = top10_products(labelled_df, 'THA')
+phl_df = top10_products(labelled_df, 'PHL')
+mys_df = top10_products(labelled_df, 'MYS')
+idn_df = top10_products(labelled_df, 'IDN')
+khm_df = top10_products(labelled_df, 'KHM')
 
 ### OPEC 
 
@@ -130,6 +141,18 @@ plot_top10_partners(sen_df, 'SEN')
 plot_top10_partners(bfa_df, 'BFA')
 plot_top10_partners(ben_df, 'BEN')
 plot_top10_partners(gmb_df, 'GMB')
+plot_top10_partners(tgo_df, 'TGO')
+plot_top10_partners(civ_df, 'CIV')
+plot_top10_partners(gnb_df, 'GNB')
+plot_top10_partners(lbr_df, 'LBR')
+
+plot_top10_partners(vnm_df, 'VNM')
+plot_top10_partners(sgp_df, 'SGP')
+plot_top10_partners(tha_df, 'THA')
+plot_top10_partners(phl_df, 'PHL')
+plot_top10_partners(mys_df, 'MYS')
+plot_top10_partners(idn_df, 'IDN')
+plot_top10_partners(khm_df, 'KHM')
 # Combine the five datasets 
 combined_df = pl.concat([rwa_df, uga_df, ken_df, bdi_df, tza_df])
 #rwa_uga_df = combined_df.groupby(['location_code'])['trade_bal_by_population'].sum().reset_index()
@@ -166,7 +189,7 @@ plt.ylabel('Country')
 plt.savefig('../output/avg_trade_bal_per_capita_sadec.png', dpi=300, bbox_inches='tight')
 
 
-ecowas_df = pl.concat([gha_df, nga_df, sen_df, bfa_df, ben_df, gmb_df])
+ecowas_df = pl.concat([gha_df, nga_df, sen_df, bfa_df, ben_df, gmb_df, tgo_df, civ_df, gnb_df, lbr_df])
 aggregated_ecowas_df = (
     ecowas_df
     .groupby(['location_code'])
@@ -176,15 +199,24 @@ aggregated_ecowas_df = (
 
 print(aggregated_ecowas_df)
 
+asean_df = pl.concat([vnm_df, sgp_df, tha_df, phl_df, mys_df, idn_df, khm_df])
+aggregated_asean_df = (
+    asean_df
+    .groupby(['location_code'])
+    .agg(
+        pl.col('trade_bal_by_population').mean().alias('avg_trade_bal_per_capita')
+    ) )
+
+print(aggregated_asean_df)
 # Convert polars table to png and save to output
 # Write the code
 fig, ax = plt.subplots(figsize=(5, 3))
 sns.set_style("whitegrid")
-sns.factorplot(x='avg_trade_bal_per_capita', y='location_code', data=aggregated_ecowas_df.to_pandas(), kind='bar')
+sns.factorplot(x='avg_trade_bal_per_capita', y='location_code', data=aggregated_asean_df.to_pandas(), kind='bar')
 plt.title('Trade balance per capita in USD')
 plt.xlabel('USD')
 plt.ylabel('Country')
-plt.savefig('../output/avg_trade_bal_per_capita_ecowas.png', dpi=300, bbox_inches='tight')
+plt.savefig('../output/avg_trade_bal_per_capita_asean.png', dpi=300, bbox_inches='tight')
 # Plot bar plot with each subfigure representing a country code
 
 
