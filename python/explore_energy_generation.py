@@ -79,6 +79,7 @@ nga_df = top10_products(labelled_df, 'NGA')
 sen_df = top10_products(labelled_df, 'SEN')
 bfa_df = top10_products(labelled_df, 'BFA')
 ben_df = top10_products(labelled_df, 'BEN')
+gmb_df = top10_products(labelled_df, 'GMB')
 
 ### ASEAN 
 
@@ -128,7 +129,7 @@ plot_top10_partners(nga_df, 'NGA')
 plot_top10_partners(sen_df, 'SEN')
 plot_top10_partners(bfa_df, 'BFA')
 plot_top10_partners(ben_df, 'BEN')
-
+plot_top10_partners(gmb_df, 'GMB')
 # Combine the five datasets 
 combined_df = pl.concat([rwa_df, uga_df, ken_df, bdi_df, tza_df])
 #rwa_uga_df = combined_df.groupby(['location_code'])['trade_bal_by_population'].sum().reset_index()
@@ -165,7 +166,7 @@ plt.ylabel('Country')
 plt.savefig('../output/avg_trade_bal_per_capita_sadec.png', dpi=300, bbox_inches='tight')
 
 
-ecowas_df = pl.concat([gha_df, nga_df, sen_df, bfa_df, ben_df])
+ecowas_df = pl.concat([gha_df, nga_df, sen_df, bfa_df, ben_df, gmb_df])
 aggregated_ecowas_df = (
     ecowas_df
     .groupby(['location_code'])
