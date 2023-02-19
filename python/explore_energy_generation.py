@@ -114,8 +114,70 @@ ven_df = top10_products(labelled_df, 'VEN')
 yem_df = top10_products(labelled_df, 'YEM')
 
 ### EU 
+aut_df = top10_products(labelled_df, 'AUT')
+bel_df = top10_products(labelled_df, 'BEL')
+bgr_df = top10_products(labelled_df, 'BGR')
+hrv_df = top10_products(labelled_df, 'HRV')
+cyp_df = top10_products(labelled_df, 'CYP')
+cze_df = top10_products(labelled_df, 'CZE')
+dnk_df = top10_products(labelled_df, 'DNK')
+est_df = top10_products(labelled_df, 'EST')
+fin_df = top10_products(labelled_df, 'FIN')
+fra_df = top10_products(labelled_df, 'FRA')
+deu_df = top10_products(labelled_df, 'DEU')
+grc_df = top10_products(labelled_df, 'GRC')
+hun_df = top10_products(labelled_df, 'HUN')
+irl_df = top10_products(labelled_df, 'IRL')
+ita_df = top10_products(labelled_df, 'ITA')
+lva_df = top10_products(labelled_df, 'LVA')
+ltu_df = top10_products(labelled_df, 'LTU')
+lux_df = top10_products(labelled_df, 'LUX')
+mlt_df = top10_products(labelled_df, 'MLT')
+nld_df = top10_products(labelled_df, 'NLD')
+pol_df = top10_products(labelled_df, 'POL')
+prt_df = top10_products(labelled_df, 'PRT')
+rou_df = top10_products(labelled_df, 'ROU')
+svk_df = top10_products(labelled_df, 'SVK')
+svn_df = top10_products(labelled_df, 'SVN')
+esp_df = top10_products(labelled_df, 'ESP')
+swe_df = top10_products(labelled_df, 'SWE')
 
 ### BRICS
+rus_df = top10_products(labelled_df, 'RUS')
+ind_df = top10_products(labelled_df, 'IND')
+chn_df = top10_products(labelled_df, 'CHN')
+bra_df = top10_products(labelled_df, 'BRA')
+zaf_df = top10_products(labelled_df, 'ZAF')
+
+### NATO 
+aut_df = top10_products(labelled_df, 'AUT')
+bel_df = top10_products(labelled_df, 'BEL')
+bgr_df = top10_products(labelled_df, 'BGR')
+hrv_df = top10_products(labelled_df, 'HRV')
+cyp_df = top10_products(labelled_df, 'CYP')
+cze_df = top10_products(labelled_df, 'CZE')
+dnk_df = top10_products(labelled_df, 'DNK')
+est_df = top10_products(labelled_df, 'EST')
+fin_df = top10_products(labelled_df, 'FIN')
+fra_df = top10_products(labelled_df, 'FRA')
+deu_df = top10_products(labelled_df, 'DEU')
+grc_df = top10_products(labelled_df, 'GRC')
+hun_df = top10_products(labelled_df, 'HUN')
+irl_df = top10_products(labelled_df, 'IRL')
+ita_df = top10_products(labelled_df, 'ITA')
+lva_df = top10_products(labelled_df, 'LVA')
+ltu_df = top10_products(labelled_df, 'LTU')
+lux_df = top10_products(labelled_df, 'LUX')
+mlt_df = top10_products(labelled_df, 'MLT')
+nld_df = top10_products(labelled_df, 'NLD')
+pol_df = top10_products(labelled_df, 'POL')
+prt_df = top10_products(labelled_df, 'PRT')
+rou_df = top10_products(labelled_df, 'ROU')
+svk_df = top10_products(labelled_df, 'SVK')
+svn_df = top10_products(labelled_df, 'SVN')
+esp_df = top10_products(labelled_df, 'ESP')
+swe_df = top10_products(labelled_df, 'SWE')
+
 
 # Create a function that returns the top 10 trade partners by trade balance weighted by population for a given location_code
 
@@ -186,6 +248,46 @@ plot_top10_partners(are_df, 'ARE')
 plot_top10_partners(ven_df, 'VEN')
 plot_top10_partners(yem_df, 'YEM')
 
+plot_top10_partners(rus_df, 'RUS')
+plot_top10_partners(ind_df, 'IND')
+plot_top10_partners(chn_df, 'CHN')
+plot_top10_partners(bra_df, 'BRA')
+plot_top10_partners(zaf_df, 'ZAF')
+
+plot_top10_partners(aut_df, 'AUT')
+plot_top10_partners(bel_df, 'BEL')
+plot_top10_partners(bgr_df, 'BGR')
+#plot_top10_partners(che_df, 'CHE')
+plot_top10_partners(cyp_df, 'CYP')
+plot_top10_partners(cze_df, 'CZE')
+plot_top10_partners(deu_df, 'DEU')
+plot_top10_partners(dnk_df, 'DNK')
+plot_top10_partners(esp_df, 'ESP')
+plot_top10_partners(est_df, 'EST')
+plot_top10_partners(fin_df, 'FIN')
+plot_top10_partners(fra_df, 'FRA')
+#plot_top10_partners(gbr_df, 'GBR')
+plot_top10_partners(grc_df, 'GRC')
+plot_top10_partners(hun_df, 'HUN')
+plot_top10_partners(irl_df, 'IRL')
+#plot_top10_partners(isl_df, 'ISL')
+plot_top10_partners(ita_df, 'ITA')
+#plot_top10_partners(jpn_df, 'JPN')
+#plot_top10_partners(ltu_df, 'LTU')
+plot_top10_partners(lux_df, 'LUX')
+plot_top10_partners(lva_df, 'LVA')
+plot_top10_partners(nld_df, 'NLD')
+#plot_top10_partners(nor_df, 'NOR')
+plot_top10_partners(pol_df, 'POL')
+plot_top10_partners(prt_df, 'PRT')
+plot_top10_partners(rou_df, 'ROU')
+plot_top10_partners(svk_df, 'SVK')
+plot_top10_partners(svn_df, 'SVN')
+plot_top10_partners(swe_df, 'SWE')
+#plot_top10_partners(tur_df, 'TUR')
+#plot_top10_partners(usa_df, 'USA')
+
+
 # Combine the five datasets 
 combined_df = pl.concat([rwa_df, uga_df, ken_df, bdi_df, tza_df])
 #rwa_uga_df = combined_df.groupby(['location_code'])['trade_bal_by_population'].sum().reset_index()
@@ -251,8 +353,6 @@ plt.xlabel('USD')
 plt.ylabel('Country')
 plt.savefig('../output/avg_trade_bal_per_capita_asean.png', dpi=300, bbox_inches='tight')
 
-
-
 opec_df = pl.concat([dza_df, ago_df, cog_df, gnq_df, gab_df, irn_df, irq_df, kwt_df, lby_df, nga_df, qat_df, sau_df, are_df, ven_df, yem_df])
 aggregated_opec_df = (
     opec_df
@@ -272,6 +372,47 @@ plt.title('Trade balance per capita in USD')
 plt.xlabel('USD')
 plt.ylabel('Country')
 plt.savefig('../output/avg_trade_bal_per_capita_opec.png', dpi=300, bbox_inches='tight')
+
+
+brics_df = pl.concat([rus_df, ind_df, chn_df, bra_df, zaf_df])
+aggregated_brics_df = (
+    asean_df
+    .groupby(['location_code'])
+    .agg(
+        pl.col('trade_bal_by_population').mean().alias('avg_trade_bal_per_capita')
+    ) )
+
+print(aggregated_brics_df)
+# Convert polars table to png and save to output
+# Write the code
+fig, ax = plt.subplots(figsize=(5, 3))
+sns.set_style("whitegrid")
+sns.factorplot(x='avg_trade_bal_per_capita', y='location_code', data=aggregated_brics_df.to_pandas(), kind='bar')
+plt.title('Trade balance per capita in USD')
+plt.xlabel('USD')
+plt.ylabel('Country')
+plt.savefig('../output/avg_trade_bal_per_capita_brics.png', dpi=300, bbox_inches='tight')
+
+
+eu_df = pl.concat([aut_df, bel_df, bgr_df, cyp_df, cze_df, deu_df, dnk_df, est_df, fin_df, fra_df, gbr_df, grc_df, hun_df, irl_df, ita_df, lva_df, ltu_df, lux_df, mlt_df, nld_df, pol_df, prt_df, rou_df, svk_df, svn_df, esp_df, swe_df])
+aggregated_eu_df = (
+    asean_df
+    .groupby(['location_code'])
+    .agg(
+        pl.col('trade_bal_by_population').mean().alias('avg_trade_bal_per_capita')
+    ) )
+
+print(aggregated_eu_df)
+# Convert polars table to png and save to output
+# Write the code
+fig, ax = plt.subplots(figsize=(5, 3))
+sns.set_style("whitegrid")
+sns.factorplot(x='avg_trade_bal_per_capita', y='location_code', data=aggregated_eu_df.to_pandas(), kind='bar')
+plt.title('Trade balance per capita in USD')
+plt.xlabel('USD')
+plt.ylabel('Country')
+plt.savefig('../output/avg_trade_bal_per_capita_eu.png', dpi=300, bbox_inches='tight')
+
 
 # Plot bar plot with each subfigure representing a country code
 
