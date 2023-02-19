@@ -11,8 +11,15 @@ import locale
 # Read in the data
 product_labs = pd.read_csv('../data/processed/SITCCodeandDescription.csv')
 trade_data_all_years = pq.ParquetDataset('../data/processed/country_partner_sitcproduct4digit_year_all.parquet').read_pandas().to_pandas()
+# Import the population data
+# It is in csv format. Skip first four rows 
+# Fifth row contains the column names
+# Write the code 
+pop_data = pd.read_csv('../data/processed/API_SP_POP_TOTL_DS2.csv', skiprows=4)
 
-print(trade_data_all_years.head(10))
+print(pop_data.head(10))
+
+#print(trade_data_all_years.head(10))
 
 # COnvert numeric columns to numeric data type
 trade_data_all_years['export_value'] = pd.to_numeric(trade_data_all_years['export_value'], errors='coerce')
@@ -38,11 +45,11 @@ def top10_products(df, location_code):
     top10 = pl.from_pandas(top10)
     return top10
 
-rwa_df = top10_products(labelled_df, 'RWA')
-uga_df = top10_products(labelled_df, 'UGA')
-ken_df = top10_products(labelled_df, 'KEN')
-bdi_df = top10_products(labelled_df, 'BDI')
-tza_df = top10_products(labelled_df, 'TZA')
+# rwa_df = top10_products(labelled_df, 'RWA')
+# uga_df = top10_products(labelled_df, 'UGA')
+# ken_df = top10_products(labelled_df, 'KEN')
+# bdi_df = top10_products(labelled_df, 'BDI')
+# tza_df = top10_products(labelled_df, 'TZA')
 
 # Create a function that returns the top 10 trade partners by trade balance weighted by population for a given location_code
 
@@ -63,11 +70,11 @@ def plot_top10_partners(df, location_code):
     plt.savefig('../output/top10partners_' + location_code + '.png', dpi=300, bbox_inches='tight')
 
 # Call the function
-plot_top10_partners(rwa_df, 'RWA')
-plot_top10_partners(uga_df, 'UGA')
-plot_top10_partners(ken_df, 'KEN')
-plot_top10_partners(bdi_df, 'BDI')
-plot_top10_partners(tza_df, 'TZA')
+# plot_top10_partners(rwa_df, 'RWA')
+# plot_top10_partners(uga_df, 'UGA')
+# plot_top10_partners(ken_df, 'KEN')
+# plot_top10_partners(bdi_df, 'BDI')
+# plot_top10_partners(tza_df, 'TZA')
 
 # Plot bar plot andsave plot as png to output folder. Use seaborn for styling
 # fig, ax = plt.subplots(figsize=(10, 6))
