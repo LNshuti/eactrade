@@ -57,13 +57,11 @@ def top10_products(df, location_code):
     # convert to polars dataframe
     top10 = pl.from_pandas(top10)
     return top10
-
 rwa_df = top10_products(labelled_df, 'RWA')
 uga_df = top10_products(labelled_df, 'UGA')
 ken_df = top10_products(labelled_df, 'KEN')
 bdi_df = top10_products(labelled_df, 'BDI')
 tza_df = top10_products(labelled_df, 'TZA')
-
 
 # Create a function that returns the top 10 trade partners by trade balance weighted by population for a given location_code
 
