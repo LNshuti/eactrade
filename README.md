@@ -28,6 +28,9 @@ Below we plot trade relationships between a select group of African countries. F
 
 In order to compare apples to apples, we need to weight the trade balance by population. This is because countries with larger populations tend to have larger trade balances.
 
+Population adjusted numbers show that ARE(United Arab Emirates) is Rwanda and Uganda's largest trading partner. This is followed by TUR(Turkey) and CHN(CHina) for Rwanda. For Uganda, Italy, Sudan and Germany(DEU) are the next largest trading partners.
+
+
 ![](output/top10partners_all.png)
 
 
