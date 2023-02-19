@@ -394,7 +394,7 @@ plt.ylabel('Country')
 plt.savefig('../output/avg_trade_bal_per_capita_brics.png', dpi=300, bbox_inches='tight')
 
 
-eu_df = pl.concat([aut_df, bel_df, bgr_df, cyp_df, cze_df, deu_df, dnk_df, est_df, fin_df, fra_df, gbr_df, grc_df, hun_df, irl_df, ita_df, lva_df, ltu_df, lux_df, mlt_df, nld_df, pol_df, prt_df, rou_df, svk_df, svn_df, esp_df, swe_df])
+eu_df = pl.concat([aut_df, bel_df, bgr_df, cyp_df, cze_df, deu_df, dnk_df, est_df, fin_df, fra_df, grc_df, hun_df, irl_df, ita_df, lva_df, ltu_df, lux_df, mlt_df, nld_df, pol_df, prt_df, rou_df, svk_df, svn_df, esp_df, swe_df])
 aggregated_eu_df = (
     asean_df
     .groupby(['location_code'])
