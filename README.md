@@ -38,13 +38,15 @@ In order to compare apples to apples, we need to weight the trade balance by pop
 ![](output/avg_trade_bal_per_capita_ecowas.png)
 
 ### ASEAN 
-
+![](output/avg_trade_bal_per_capita_asean.png)
 ### OPEC 
-
+![](output/avg_trade_bal_per_capita_opec.png)
 
 ### EU 
+![](output/avg_trade_bal_per_capita_eu.png)
 
 ### BRICS
+![](output/avg_trade_bal_per_capita_brics.png)
 
 
 **References**
