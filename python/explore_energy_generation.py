@@ -56,7 +56,7 @@ def plot_top10_partners(df, location_code):
     # Select the top 10 partner_code by trade balance for RWA
     top10 = df.groupby('partner_code').agg(pl.sum('trade_balance_millions')).sort('trade_balance_millions', reverse=True).head(10)
     # Plot bar plot andsave plot as png to output folder. Use seaborn for styling
-    fig, ax = plt.subplots(figsize=(6, 4))
+    fig, ax = plt.subplots(figsize=(5, 3))
     sns.set_style("whitegrid")
     sns.factorplot(x='trade_balance_millions', y='partner_code', data=top10.to_pandas(), palette='Blues_d', kind='bar')
     plt.title('Top 10 Partners for ' + location_code)
