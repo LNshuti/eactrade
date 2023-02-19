@@ -33,6 +33,8 @@ Population adjusted numbers show that ARE(United Arab Emirates) is Rwanda's larg
 
 ![](output/top10partners_all.png)
 
+![](output/top10partners_ken_tza.png)
+
 
 **References**
 --------------
