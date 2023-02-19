@@ -45,11 +45,30 @@ rwa_top10 = rwa_df.groupby('partner_code').agg(pl.sum('trade_balance_millions'))
 locale.setlocale(locale.LC_ALL,'')
 print(rwa_top10)
 
+# Convert the following code into a function 
+# The function takes a dataframe and a location_code as input
+# The function plots a barplot of the top 10 trade partners for the location_code
+# The function saves the plot as a png to the output folder
+# Create the function 
+def plot_top10_partners(df, location_code):
+    # Select the top 10 partner_code by trade balance for RWA
+    top10 = df.groupby('partner_code').agg(pl.sum('trade_balance_millions')).sort('trade_balance_millions', reverse=True).head(10)
+    # Plot bar plot andsave plot as png to output folder. Use seaborn for styling
+    fig, ax = plt.subplots(figsize=(10, 6))
+    sns.set_style("whitegrid")
+    sns.factorplot(x='trade_balance_millions', y='partner_code', data=top10.to_pandas(), palette='Blues_d', kind='bar')
+    plt.title('Top 10 Partners for ' + location_code)
+    plt.xlabel('Trade Balance In Millions of USD')
+    plt.ylabel('')
+    plt.savefig('../output/top10partners_' + location_code + '.png', dpi=300, bbox_inches='tight')
+
+# Call the function
+plot_top10_partners(rwa_df, 'RWA')
 # Plot bar plot andsave plot as png to output folder. Use seaborn for styling
-fig, ax = plt.subplots(figsize=(10, 6))
-sns.set_style("whitegrid")
-sns.factorplot(x='trade_balance_millions', y='partner_code', data=rwa_top10.to_pandas(), palette='Blues_d', kind='bar')
-plt.title('Top 10 Partners for Rwanda')
-plt.xlabel('Trade Balance In Millions of USD')
-plt.ylabel('')
-plt.savefig('../output/top10partners_rwa.png', dpi=300, bbox_inches='tight')
+# fig, ax = plt.subplots(figsize=(10, 6))
+# sns.set_style("whitegrid")
+# sns.factorplot(x='trade_balance_millions', y='partner_code', data=rwa_top10.to_pandas(), palette='Blues_d', kind='bar')
+# plt.title('Top 10 Partners for Rwanda')
+# plt.xlabel('Trade Balance In Millions of USD')
+# plt.ylabel('')
+# plt.savefig('../output/top10partners_rwa.png', dpi=300, bbox_inches='tight')
