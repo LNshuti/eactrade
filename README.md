@@ -13,12 +13,6 @@ A country is said to have a trade *imbalance* if the country imports more than i
 ```
 Trade balance = exports - imports
 ```
-**Properties of Markov Networks**
---------------------------------
-- All the variables are continuous
-- observations have a multivariate Gaussian distribution with mean `Mu` and covariance matrix `E`
-
-- We can use the graphical lasso method to estimate parameters. 
 
 **Data Source**
 ---------------
