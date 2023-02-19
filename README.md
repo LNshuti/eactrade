@@ -50,7 +50,7 @@ In order to compare apples to apples, we need to weight the trade balance by pop
 ![](output/avg_trade_bal_per_capita_brics.png)
 
 ### NATO
-
+![](output/avg_trade_bal_per_capita_nato.png)
 
 **References**
 --------------

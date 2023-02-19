@@ -177,11 +177,7 @@ svk_df = top10_products(labelled_df, 'SVK')
 svn_df = top10_products(labelled_df, 'SVN')
 esp_df = top10_products(labelled_df, 'ESP')
 swe_df = top10_products(labelled_df, 'SWE')
-
-
 # Create a function that returns the top 10 trade partners by trade balance weighted by population for a given location_code
-
-
 # Convert the following code into a function 
 # The function takes a dataframe and a location_code as input
 # The function plots a barplot of the top 10 trade partners for the location_code
@@ -286,6 +282,8 @@ plot_top10_partners(svn_df, 'SVN')
 plot_top10_partners(swe_df, 'SWE')
 #plot_top10_partners(tur_df, 'TUR')
 #plot_top10_partners(usa_df, 'USA')
+
+
 
 
 # Combine the five datasets 
@@ -413,6 +411,26 @@ plt.xlabel('USD')
 plt.ylabel('Country')
 plt.savefig('../output/avg_trade_bal_per_capita_eu.png', dpi=300, bbox_inches='tight')
 
+############################################
+
+nato_df = pl.concat([aut_df, bel_df, bgr_df, cyp_df, cze_df, deu_df, dnk_df, est_df, fin_df, fra_df, grc_df, hun_df, irl_df, ita_df, lva_df, ltu_df, lux_df, mlt_df, nld_df, pol_df, prt_df, rou_df, svk_df, svn_df, esp_df, swe_df, dza_df, ago_df, cog_df, gnq_df, gab_df, irn_df, irq_df, kwt_df, lby_df, nga_df, qat_df, sau_df, are_df, ven_df, yem_df, rus_df, ind_df, chn_df, bra_df, zaf_df, vnm_df, sgp_df, tha_df, phl_df, mys_df, idn_df, khm_df])
+aggregated_nato_df = (
+    asean_df
+    .groupby(['location_code'])
+    .agg(
+        pl.col('trade_bal_by_population').mean().alias('avg_trade_bal_per_capita')
+    ) )
+
+print(aggregated_nato_df)
+# Convert polars table to png and save to output
+# Write the code
+fig, ax = plt.subplots(figsize=(5, 3))
+sns.set_style("whitegrid")
+sns.factorplot(x='avg_trade_bal_per_capita', y='location_code', data=aggregated_nato_df.to_pandas(), kind='bar')
+plt.title('Trade balance per capita in USD')
+plt.xlabel('USD')
+plt.ylabel('Country')
+plt.savefig('../output/avg_trade_bal_per_capita_nato.png', dpi=300, bbox_inches='tight')
 
 # Plot bar plot with each subfigure representing a country code
 
