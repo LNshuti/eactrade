@@ -32,6 +32,7 @@ In order to compare apples to apples, we need to weight the trade balance by pop
 ![](output/avg_trade_bal_per_capita.png)
 
 ### SADC countries 
+![](output/avg_trade_bal_per_capita_sadec.png)
 
 ### ECOWAS countries
 
