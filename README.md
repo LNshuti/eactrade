@@ -24,8 +24,8 @@ As in my [other work](https://github.com/LNshuti/LNSHUTI.github.io), I use the A
 Below we plot trade relationships between a select group of African countries. For this plot, we sum data from 2015 to 2020. Note that the width of the edge represents the **trade balance** in US dollars between country x and country y for the given time period.
 
 ### Rwanda trade balance 2020. Top 10 trading partners.
-# Show png in output
-![Rwanda trade balance 2020. Top 10 trading partners.]('output/top10partners_rwa.png')
+
+![](output/top10partners_rwa.png)
 
 **References**
 --------------
