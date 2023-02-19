@@ -70,6 +70,8 @@ zmb_df = top10_products(labelled_df, 'ZMB')
 ago_df = top10_products(labelled_df, 'AGO')
 mwi_df = top10_products(labelled_df, 'MWI')
 lso_df = top10_products(labelled_df, 'LSO')
+swz_df = top10_products(labelled_df, 'SWZ')
+nam_df = top10_products(labelled_df, 'NAM')
 
 # Create a function that returns the top 10 trade partners by trade balance weighted by population for a given location_code
 
@@ -102,6 +104,9 @@ plot_top10_partners(zmb_df, 'ZMB')
 plot_top10_partners(ago_df, 'AGO')
 plot_top10_partners(mwi_df, 'MWI')
 plot_top10_partners(lso_df, 'LSO')
+plot_top10_partners(swz_df, 'SWZ')
+plot_top10_partners(nam_df, 'NAM')
+
 
 # Combine the five datasets 
 combined_df = pl.concat([rwa_df, uga_df, ken_df, bdi_df, tza_df])
@@ -118,7 +123,7 @@ aggregated_df = (
 
 print(aggregated_df)
 
-sadec_df = pl.concat([bwa_df, moz_df, zmb_df, ago_df, mwi_df, tza_df, lso_df])
+sadec_df = pl.concat([bwa_df, moz_df, zmb_df, ago_df, mwi_df, tza_df, lso_df, swz_df, nam_df])
 aggregated_sadecc_df = (
     sadec_df
     .groupby(['location_code'])
