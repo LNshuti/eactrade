@@ -63,6 +63,12 @@ ken_df = top10_products(labelled_df, 'KEN')
 bdi_df = top10_products(labelled_df, 'BDI')
 tza_df = top10_products(labelled_df, 'TZA')
 
+### SADEC 
+bwa_df = top10_products(labelled_df, 'BWA')
+moz_df = top10_products(labelled_df, 'MOZ')
+zmb_df = top10_products(labelled_df, 'ZMB')
+ago_df = top10_products(labelled_df, 'AGO')
+
 # Create a function that returns the top 10 trade partners by trade balance weighted by population for a given location_code
 
 
@@ -88,6 +94,11 @@ plot_top10_partners(ken_df, 'KEN')
 plot_top10_partners(bdi_df, 'BDI')
 plot_top10_partners(tza_df, 'TZA')
 
+plot_top10_partners(bwa_df, 'BWA')
+plot_top10_partners(moz_df, 'MOZ')
+plot_top10_partners(zmb_df, 'ZMB')
+plot_top10_partners(ago_df, 'AGO')
+
 # Combine the five datasets 
 combined_df = pl.concat([rwa_df, uga_df, ken_df, bdi_df, tza_df])
 #rwa_uga_df = combined_df.groupby(['location_code'])['trade_bal_by_population'].sum().reset_index()
@@ -103,15 +114,25 @@ aggregated_df = (
 
 print(aggregated_df)
 
+sadec_df = pl.concat([bwa_df, moz_df, zmb_df, ago_df])
+aggregated_sadecc_df = (
+    sadec_df
+    .groupby(['location_code'])
+    .agg(
+        pl.col('trade_bal_by_population').mean().alias('avg_trade_bal_per_capita')
+    ) )
+
+print(aggregated_sadecc_df)
+
 # Convert polars table to png and save to output 
 # Write the code
 fig, ax = plt.subplots(figsize=(5, 3))
 sns.set_style("whitegrid")
-sns.factorplot(x='avg_trade_bal_per_capita', y='location_code', data=aggregated_df.to_pandas(), kind='bar')
+sns.factorplot(x='avg_trade_bal_per_capita', y='location_code', data=aggregated_sadecc_df.to_pandas(), kind='bar')
 plt.title('Trade balance per capita in USD')
 plt.xlabel('USD')
 plt.ylabel('Country')
-plt.savefig('../output/avg_trade_bal_per_capita.png', dpi=300, bbox_inches='tight')
+plt.savefig('../output/avg_trade_bal_per_capita_sadec.png', dpi=300, bbox_inches='tight')
 
 # Plot bar plot with each subfigure representing a country code
 
