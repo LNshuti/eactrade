@@ -107,7 +107,12 @@ print(aggregated_df)
 
 # Convert polars table to png and save to output 
 # Write the code
-aggregated_df.to_pandas().plot.barh()
+fig, ax = plt.subplots(figsize=(5, 3))
+sns.set_style("whitegrid")
+sns.factorplot(x='avg_trade_bal_per_capita', y='location_code', data=aggregated_df.to_pandas(), kind='bar')
+plt.title('Trade balance per capita in USD')
+plt.xlabel('USD')
+plt.ylabel('Country')
 plt.savefig('../output/avg_trade_bal_per_capita.png', dpi=300, bbox_inches='tight')
 
 # Plot bar plot with each subfigure representing a country code
