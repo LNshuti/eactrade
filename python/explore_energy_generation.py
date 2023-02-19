@@ -91,7 +91,8 @@ plot_top10_partners(bdi_df, 'BDI')
 plot_top10_partners(tza_df, 'TZA')
 
 # Combine the five datasets 
-combined_df = pl.concat([rwa_df, uga_df, ken_df, bdi_df, tza_df])
+combined_df = pl.concat([rwa_df, uga_df])
+#, ken_df, bdi_df, tza_df
 
 # Plot bar plot with each subfigure representing a country code 
 # Use trade_bal_by_population as the y variable
