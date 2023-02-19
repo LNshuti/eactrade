@@ -23,7 +23,7 @@ As in my [other work](https://github.com/LNshuti/LNSHUTI.github.io), I use the A
 
 Below we plot trade relationships between a select group of African countries. For this plot, we sum data for 2020.
 
-![](output/top10partners_rwa.png) ![](output/top10partners_UGA.png) ![](output/top10partners_KEN.png) ![](output/top10partners_BDI.png)
+![](output/top10partners_rwa.png) ![](output/top10partners_UGA.png) ![](output/top10partners_KEN.png) ![](output/top10partners_BDI.png) ![](output/top10partners_TZA.png) 
 
 **References**
 --------------

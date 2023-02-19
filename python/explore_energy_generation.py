@@ -53,7 +53,7 @@ def plot_top10_partners(df, location_code):
     # Plot bar plot andsave plot as png to output folder. Use seaborn for styling
     fig, ax = plt.subplots(figsize=(5, 3))
     sns.set_style("whitegrid")
-    sns.factorplot(x='trade_balance_millions', y='partner_code', data=df.to_pandas(), palette='Blues_d', kind='bar')
+    sns.catplot(x='trade_balance_millions', y='partner_code', data=df.to_pandas(), palette='Blues_d', kind='bar')
     plt.title(location_code)
     plt.xlabel('Trade Balance In Millions of USD')
     plt.ylabel('')
