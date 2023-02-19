@@ -37,6 +37,16 @@ In order to compare apples to apples, we need to weight the trade balance by pop
 ### ECOWAS countries
 ![](output/avg_trade_bal_per_capita_ecowas.png)
 
+### ASEAN 
+
+### OPEC 
+
+
+### EU 
+
+### BRICS
+
+
 **References**
 --------------
 - Use Vaex and Streamlit to accomodate very large file sizes. https://vaex.io/blog/vaex-plus-streamlit-where-simplicity-meets-big-data

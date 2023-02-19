@@ -80,6 +80,15 @@ sen_df = top10_products(labelled_df, 'SEN')
 bfa_df = top10_products(labelled_df, 'BFA')
 ben_df = top10_products(labelled_df, 'BEN')
 
+### ASEAN 
+
+### OPEC 
+
+
+### EU 
+
+### BRICS
+
 # Create a function that returns the top 10 trade partners by trade balance weighted by population for a given location_code
 
 
