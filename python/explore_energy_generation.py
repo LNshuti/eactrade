@@ -32,17 +32,19 @@ labelled_df['trade_balance_millions'] = labelled_df['trade_balance'] / 1000000
 
 # Filter to the top 10 products by trade balance for CHN 
 rwa_df = labelled_df[labelled_df['location_code'] == 'RWA'].sort_values(by='trade_balance_millions', ascending=False)
+uga_df = labelled_df[labelled_df['location_code'] == 'UGA'].sort_values(by='trade_balance_millions', ascending=False)
 
 # Select unique values from the parent_code and description columns 
 rwa_df = rwa_df[['year','parent_code','location_code', 'partner_code', 'description', 'trade_balance_millions']].drop_duplicates()
-
+uga_df = uga_df[['year','parent_code','location_code', 'partner_code', 'description', 'trade_balance_millions']].drop_duplicates()
 # convert to polars dataframe
 rwa_df = pl.from_pandas(rwa_df)
+uga_df = pl.from_pandas(uga_df)
 #print(rwa_df)
 
 # Select the top 10 partner_code by trade balance for RWA
 rwa_top10 = rwa_df.groupby('partner_code').agg(pl.sum('trade_balance_millions')).sort('trade_balance_millions', reverse=True).head(10)
-locale.setlocale(locale.LC_ALL,'')
+uga_top10 = uga_df.groupby('partner_code').agg(pl.sum('trade_balance_millions')).sort('trade_balance_millions', reverse=True).head(10)
 print(rwa_top10)
 
 # Convert the following code into a function 
@@ -54,7 +56,7 @@ def plot_top10_partners(df, location_code):
     # Select the top 10 partner_code by trade balance for RWA
     top10 = df.groupby('partner_code').agg(pl.sum('trade_balance_millions')).sort('trade_balance_millions', reverse=True).head(10)
     # Plot bar plot andsave plot as png to output folder. Use seaborn for styling
-    fig, ax = plt.subplots(figsize=(10, 6))
+    fig, ax = plt.subplots(figsize=(6, 4))
     sns.set_style("whitegrid")
     sns.factorplot(x='trade_balance_millions', y='partner_code', data=top10.to_pandas(), palette='Blues_d', kind='bar')
     plt.title('Top 10 Partners for ' + location_code)
@@ -64,6 +66,7 @@ def plot_top10_partners(df, location_code):
 
 # Call the function
 plot_top10_partners(rwa_df, 'RWA')
+plot_top10_partners(uga_df, 'UGA')
 # Plot bar plot andsave plot as png to output folder. Use seaborn for styling
 # fig, ax = plt.subplots(figsize=(10, 6))
 # sns.set_style("whitegrid")

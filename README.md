@@ -25,6 +25,9 @@ Below we plot trade relationships between a select group of African countries. F
 
 ![](output/top10partners_rwa.png)
 
+
+![](output/top10partners_UGA.png)
+
 **References**
 --------------
 - Use Vaex and Streamlit to accomodate very large file sizes. https://vaex.io/blog/vaex-plus-streamlit-where-simplicity-meets-big-data
