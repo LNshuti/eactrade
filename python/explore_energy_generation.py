@@ -73,6 +73,13 @@ lso_df = top10_products(labelled_df, 'LSO')
 swz_df = top10_products(labelled_df, 'SWZ')
 nam_df = top10_products(labelled_df, 'NAM')
 
+### ECOWAS 
+gha_df = top10_products(labelled_df, 'GHA')
+nga_df = top10_products(labelled_df, 'NGA')
+sen_df = top10_products(labelled_df, 'SEN')
+bfa_df = top10_products(labelled_df, 'BFA')
+ben_df = top10_products(labelled_df, 'BEN')
+
 # Create a function that returns the top 10 trade partners by trade balance weighted by population for a given location_code
 
 
@@ -107,6 +114,11 @@ plot_top10_partners(lso_df, 'LSO')
 plot_top10_partners(swz_df, 'SWZ')
 plot_top10_partners(nam_df, 'NAM')
 
+plot_top10_partners(gha_df, 'GHA')
+plot_top10_partners(nga_df, 'NGA')
+plot_top10_partners(sen_df, 'SEN')
+plot_top10_partners(bfa_df, 'BFA')
+plot_top10_partners(ben_df, 'BEN')
 
 # Combine the five datasets 
 combined_df = pl.concat([rwa_df, uga_df, ken_df, bdi_df, tza_df])
@@ -143,6 +155,26 @@ plt.xlabel('USD')
 plt.ylabel('Country')
 plt.savefig('../output/avg_trade_bal_per_capita_sadec.png', dpi=300, bbox_inches='tight')
 
+
+ecowas_df = pl.concat([gha_df, nga_df, sen_df, bfa_df, ben_df])
+aggregated_ecowas_df = (
+    ecowas_df
+    .groupby(['location_code'])
+    .agg(   
+        pl.col('trade_bal_by_population').mean().alias('avg_trade_bal_per_capita')
+    ) )
+
+print(aggregated_ecowas_df)
+
+# Convert polars table to png and save to output
+# Write the code
+fig, ax = plt.subplots(figsize=(5, 3))
+sns.set_style("whitegrid")
+sns.factorplot(x='avg_trade_bal_per_capita', y='location_code', data=aggregated_ecowas_df.to_pandas(), kind='bar')
+plt.title('Trade balance per capita in USD')
+plt.xlabel('USD')
+plt.ylabel('Country')
+plt.savefig('../output/avg_trade_bal_per_capita_ecowas.png', dpi=300, bbox_inches='tight')
 # Plot bar plot with each subfigure representing a country code
 
 
