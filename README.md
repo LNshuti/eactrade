@@ -24,39 +24,6 @@ Trade balance = exports - imports
 ---------------
 As in my [other work](https://github.com/LNshuti/LNSHUTI.github.io), I use the Atlas of Economic Complexity from the Growth Lab at Harvard University because this data source is: 1) Detailed down to the product level that each country in the World trades from 1962 to 2019. 2) Standardized to simplify the process of building time series to track changes over time. 3) Regularly used and highly cited source with over *fifty thousand downloads*. It is also publicly available and can be downloaded [**here.**](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/H8SFD2)
 
-For the purpose of this analysis, we focus on a handful of variables from the data:
-- location_id: country identifier representing the importer.  
-- partner_id: country identifier representing the exporter.
-- product_id: product identifier. 
-- imports: amount in dollars of a product that a country imports.
-- exports: amount in dollars of a product that a country exports.
-- year
-
-|location_product | partner_id |year     | import_value | export_value|
-:-----------------|:-----------|:--------|:-------------|:------------| 
-|187_670          |116         |  2015   |9916          |         0   |
-|226_670          |116         |  2017   |140197        |         0   |
-|227_670          |116         |  2013   |0             |   1261266   |
-|116_670          |187         |  2019   |0             |      9916   |
-|227_670          |187         |  2018   |13000         |      9011   |
-
-The WITS database identifies countries using ISO3 codes. Below is a crosswalk for East African countries.
-
-|country                                |	alpha_3_code|	numeric_code |
-:---------------------------------------|:------------|:-------------|
-|Burundi	                              | BDI	        | 108          |  
-|Congo, the Democratic Republic of the	| COD	        | 180          |
-|Kenya	                                | KEN	        | 404          |
-|Rwanda	                                | RWA	        | 646          |
-|Tanzania, United Republic of	          | TZA	        | 834          |
-|Uganda	                                | UGA	        | 800          |
-
-For a full description of the data cleaning process, consult the R code under:
-
-``` r
-source("R/01_data_aggregation_task.R")
-```
-
 **EDA: Exploratory Data Analysis**
 --------------------------------
 
