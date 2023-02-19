@@ -42,11 +42,7 @@ rwa_df = top10_products(labelled_df, 'RWA')
 uga_df = top10_products(labelled_df, 'UGA')
 ken_df = top10_products(labelled_df, 'KEN')
 bdi_df = top10_products(labelled_df, 'BDI')
-
-# Select the top 10 partner_code by trade balance for RWA
-rwa_top10 = rwa_df.groupby('partner_code').agg(pl.sum('trade_balance_millions')).sort('trade_balance_millions', reverse=True).head(10)
-uga_top10 = uga_df.groupby('partner_code').agg(pl.sum('trade_balance_millions')).sort('trade_balance_millions', reverse=True).head(10)
-print(rwa_top10)
+tza_df = top10_products(labelled_df, 'TZA')
 
 # Convert the following code into a function 
 # The function takes a dataframe and a location_code as input
@@ -54,12 +50,10 @@ print(rwa_top10)
 # The function saves the plot as a png to the output folder
 # Create the function 
 def plot_top10_partners(df, location_code):
-    # Select the top 10 partner_code by trade balance for RWA
-    top10 = df.groupby('partner_code').agg(pl.sum('trade_balance_millions')).sort('trade_balance_millions', reverse=True).head(10)
     # Plot bar plot andsave plot as png to output folder. Use seaborn for styling
     fig, ax = plt.subplots(figsize=(5, 3))
     sns.set_style("whitegrid")
-    sns.factorplot(x='trade_balance_millions', y='partner_code', data=top10.to_pandas(), palette='Blues_d', kind='bar')
+    sns.factorplot(x='trade_balance_millions', y='partner_code', data=df.to_pandas(), palette='Blues_d', kind='bar')
     plt.title(location_code)
     plt.xlabel('Trade Balance In Millions of USD')
     plt.ylabel('')
@@ -70,10 +64,8 @@ plot_top10_partners(rwa_df, 'RWA')
 plot_top10_partners(uga_df, 'UGA')
 plot_top10_partners(ken_df, 'KEN')
 plot_top10_partners(bdi_df, 'BDI')
+plot_top10_partners(tza_df, 'TZA')
 
-# import openai 
-# import os 
-# os.environ["OPENAI_API_KEY"] = ""
 # Plot bar plot andsave plot as png to output folder. Use seaborn for styling
 # fig, ax = plt.subplots(figsize=(10, 6))
 # sns.set_style("whitegrid")
