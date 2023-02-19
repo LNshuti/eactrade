@@ -27,6 +27,7 @@ Below we plot trade relationships between a select group of African countries. F
 
 
 In order to compare apples to apples, we need to weight the trade balance by population. This is because countries with larger populations tend to have larger trade balances. 
+![]('output/top10partners_all.png')
 
 
 **References**
