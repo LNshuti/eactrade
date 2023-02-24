@@ -42,9 +42,20 @@ labelled_df['trade_bal_by_population'] = labelled_df['trade_balance'] / labelled
 
 all_countries_df = labelled_df[['year','parent_code','location_code', 'partner_code', 'description', 'trade_balance_millions', 'trade_balance', 'pop_2020', 'trade_bal_by_population']].drop_duplicates()
 
-top10 = all_countries_df.sort_values(by='trade_bal_by_population', ascending=False)
+# Filter all_countries_df by location_code using the following locations 
+all_countries = ["REU", "RWA", "STP",	"SEN", 	"SYC", 	"SLE",
+                 "SOM","ZAF", "SSD", "SDN", "SWZ", "TZA", "NGA", "NER",
+                 "TGO", "TUN",	"UGA", "ESH",	"ZMB", "ZWE",
+                 "LSO",	"LBR",	"LBY", "MDG", "MLI",	"MWI",	"MRT",	"MUS",	
+                 "MYT",	"MAR",	"MOZ","NAM", "DZA", "AGO", "BEN", "BWA", "BFA",
+            	"BDI", "CMR", "CPV","CAF",	"TCD", "COM", "COG", "COD", "CIV", 
+                "DJI",	"EGY","GNQ", "ERI",	"ETH", "GAB", "GMB", "GHA", "GIN", "GNB", "KEN"]
+# Write the code
+all_countries_df = all_countries_df[all_countries_df['location_code'].isin(all_countries)]
+
+all_africa_df = all_countries_df.sort_values(by='trade_bal_by_population', ascending=False)
 # convert to polars dataframe
-top10 = pl.from_pandas(top10)
+top10 = pl.from_pandas(all_africa_df)
 
 all_countries_df_agg = (
     top10
@@ -55,6 +66,18 @@ all_countries_df_agg = (
     # Sort polars dataframe in descending ordert by avg_trade_bal_per_capita    
     )
 print(all_countries_df_agg.tail(20))
+
+
+# Convert polars table to png and save to output 
+# Write the code
+fig, ax = plt.subplots(figsize=(6, 4))
+sns.set_style("whitegrid")
+sns.factorplot(x='avg_trade_bal_per_capita', y='location_code', data=all_countries_df_agg.to_pandas(), kind='bar')
+plt.title('Trade balance per capita $')
+plt.xlabel('USD')
+plt.ylabel('')
+plt.savefig('../output/trade_bal_by_population_allafrica.png', dpi=200, bbox_inches='tight')
+
 
 # Convert polars table to png and save to output 
 # Write the code

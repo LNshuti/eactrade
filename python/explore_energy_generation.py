@@ -161,7 +161,7 @@ sns.factorplot(x='avg_trade_bal_per_capita', y='location_code', data=aggregated_
 plt.title('Trade balance per capita $')
 plt.xlabel('USD')
 plt.ylabel('')
-plt.savefig('../output/avg_trade_bal_per_capita_sadec.png', dpi=200, bbox_inches='tight')
+plt.savefig('../output/avg_trade_bal_per_capita_allafrica.png', dpi=200, bbox_inches='tight')
 
 # Plot bar plot with each subfigure representing a country code
 
