@@ -70,10 +70,10 @@ print(all_countries_df_agg.tail(20))
 
 # Convert polars table to png and save to output 
 # Write the code
-fig, ax = plt.subplots(figsize=(6, 4))
+fig, ax = plt.subplots(figsize=(8, 8))
 sns.set_style("whitegrid")
 sns.factorplot(x='avg_trade_bal_per_capita', y='location_code', data=all_countries_df_agg.to_pandas(), kind='bar')
-plt.title('Trade balance per capita $')
+plt.title('Trade balance per capita')
 plt.xlabel('USD')
 plt.ylabel('')
 plt.savefig('../output/trade_bal_by_population_allafrica.png', dpi=200, bbox_inches='tight')
