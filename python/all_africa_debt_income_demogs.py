@@ -62,16 +62,16 @@ all_countries_df_agg = (
     .groupby(['location_code'])
     .agg(
         pl.col('trade_bal_by_population').mean().alias('avg_trade_bal_per_capita')
-    )
-    # Sort polars dataframe in descending ordert by avg_trade_bal_per_capita    
-    )
+        )
+        .sort('avg_trade_bal_per_capita', reverse=True)
+)
 print(all_countries_df_agg.tail(20))
-
 
 # Convert polars table to png and save to output 
 # Write the code
 fig, ax = plt.subplots(figsize=(8, 8))
 sns.set_style("whitegrid")
+
 sns.factorplot(x='avg_trade_bal_per_capita', y='location_code', data=all_countries_df_agg.to_pandas(), kind='bar')
 plt.title('Trade balance per capita')
 plt.xlabel('USD')
