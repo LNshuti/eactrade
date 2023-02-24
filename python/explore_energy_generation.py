@@ -96,13 +96,13 @@ print(labelled_df['location_code'].unique())
 # Create the function 
 def plot_top10_partners(df, location_code):
     # Plot bar plot andsave plot as png to output folder. Use seaborn for styling
-    fig, ax = plt.subplots(figsize=(5, 3))
+    fig, ax = plt.subplots(figsize=(3, 2))
     sns.set_style("whitegrid")
-    sns.catplot(x='trade_balance_millions', y='partner_code', data=df.to_pandas(), palette='Blues_d', kind='bar')
+    sns.FacetGrid(x='trade_balance_millions', y='partner_code', data=df.to_pandas(), palette='Blues_d', kind='bar')
     plt.title(location_code)
-    plt.xlabel('Trade Balance In Millions of USD')
+    plt.xlabel('Trade Balance In Millions $')
     plt.ylabel('')
-    plt.savefig('../output/top10partners_' + location_code + '.png', dpi=300, bbox_inches='tight')
+    plt.savefig('../output/top10partners_' + location_code + '.png', dpi=200, bbox_inches='tight')
 
 # Call the function
 plot_top10_partners(rwa_df, 'RWA')
@@ -147,13 +147,13 @@ print(aggregated_sadecc_df)
 
 # Convert polars table to png and save to output 
 # Write the code
-fig, ax = plt.subplots(figsize=(5, 3))
+fig, ax = plt.subplots(figsize=(3, 2))
 sns.set_style("whitegrid")
 sns.factorplot(x='avg_trade_bal_per_capita', y='location_code', data=aggregated_sadecc_df.to_pandas(), kind='bar')
-plt.title('Trade balance per capita in USD')
+plt.title('Trade balance per capita $')
 plt.xlabel('USD')
-plt.ylabel('Country')
-plt.savefig('../output/avg_trade_bal_per_capita_sadec.png', dpi=300, bbox_inches='tight')
+plt.ylabel('')
+plt.savefig('../output/avg_trade_bal_per_capita_sadec.png', dpi=200, bbox_inches='tight')
 
 # Plot bar plot with each subfigure representing a country code
 
