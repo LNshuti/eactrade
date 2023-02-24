@@ -125,31 +125,39 @@ combined_df = pl.concat([rwa_df, uga_df, ken_df, bdi_df, tza_df])
 #rwa_uga_df = combined_df.groupby(['location_code'])['trade_bal_by_population'].sum().reset_index()
 print(combined_df)
 
-aggregated_df = (
-    combined_df
-    .groupby(['location_code'])
-    .agg(
-        pl.col('trade_bal_by_population').mean().alias('avg_trade_bal_per_capita')
-    )
-)
+# aggregated_df = (
+#     combined_df
+#     .groupby(['location_code'])
+#     .agg(
+#         pl.col('trade_bal_by_population').mean().alias('avg_trade_bal_per_capita')
+#     )
+# )
 
-print(aggregated_df)
+# print(aggregated_df)
 
-sadec_df = pl.concat([bwa_df, moz_df, zmb_df, ago_df, mwi_df, tza_df, lso_df, swz_df, nam_df])
-aggregated_sadecc_df = (
-    sadec_df
+all_countries = ["REU", "RWA", "STP",	"SEN", 	"SYC", 	"SLE",
+                 "SOM","ZAF", "SSD", "SDN", "SWZ", "TZA", "NGA", "NER",
+                 "TGO", "TUN",	"UGA", "ESH",	"ZMB", "ZWE",
+                 "LSO",	"LBR",	"LBY", "MDG", "MLI",	"MWI",	"MRT",	"MUS",	
+                 "MYT",	"MAR",	"MOZ","NAM", "DZA", "AGO", "BEN", "BWA", "BFA",
+            	"BDI", "CMR", "CPV","CAF",	"TCD", "COM", "COG", "COD", "CIV", 
+                "DJI",	"EGY","GNQ", "ERI",	"ETH", "GAB", "GMB", "GHA", "GIN", "GNB", "KEN"]
+
+all_africa_df = pl.concat([bwa_df, moz_df, zmb_df, ago_df, mwi_df, tza_df, lso_df, swz_df, nam_df])
+aggregated_allafrica_df = (
+    all_africa_df
     .groupby(['location_code'])
     .agg(
         pl.col('trade_bal_by_population').mean().alias('avg_trade_bal_per_capita')
     ) )
 
-print(aggregated_sadecc_df)
+print(aggregated_allafrica_df)
 
 # Convert polars table to png and save to output 
 # Write the code
 fig, ax = plt.subplots(figsize=(3, 2))
 sns.set_style("whitegrid")
-sns.factorplot(x='avg_trade_bal_per_capita', y='location_code', data=aggregated_sadecc_df.to_pandas(), kind='bar')
+sns.factorplot(x='avg_trade_bal_per_capita', y='location_code', data=aggregated_allafrica_df.to_pandas(), kind='bar')
 plt.title('Trade balance per capita $')
 plt.xlabel('USD')
 plt.ylabel('')
@@ -157,37 +165,3 @@ plt.savefig('../output/avg_trade_bal_per_capita_sadec.png', dpi=200, bbox_inches
 
 # Plot bar plot with each subfigure representing a country code
 
-
-# combined_ken_tza = pl.concat([ken_df, tza_df])
-# combined_ken_tza_df = combined_ken_tza.groupby(['location_code'])['trade_bal_by_population'].sum().reset_index()
-
-#, ken_df, bdi_df, tza_df
-
-# Plot bar plot with each subfigure representing a country code 
-# Use trade_bal_by_population as the y variable
-# write the code 
-# Incease the size of the figure
-# Increase the overall plot size especially the height
-# Plot bar plot andsave plot as png to output folder. Use seaborn for styling
-
-# fig, ax = plt.subplots(figsize=(4, 6))
-# sns.set_style("whitegrid")
-# sns.catplot(x='trade_bal_by_population', y='partner_code', data=rwa_uga_df.to_pandas(), kind='bar', col='location_code')
-# plt.xlabel('Trade Balance in USD/Population')
-# plt.savefig('../output/top10partners_rwa_uga.png', bbox_inches='tight')
-
-
-# fig, ax = plt.subplots(figsize=(4, 6))
-# sns.set_style("whitegrid")
-# sns.catplot(x='trade_bal_by_population', y='partner_code', data=combined_ken_tza_df.to_pandas(), kind='bar', col='location_code')
-# plt.xlabel('Trade Balance in USD/Population')
-# plt.savefig('../output/top10partners_ken_tza.png', bbox_inches='tight')
-
-# Plot bar plot andsave plot as png to output folder. Use seaborn for styling
-# fig, ax = plt.subplots(figsize=(10, 6))
-# sns.set_style("whitegrid")
-# sns.factorplot(x='trade_balance_millions', y='partner_code', data=rwa_top10.to_pandas(), palette='Blues_d', kind='bar')
-# plt.title('Top 10 Partners for Rwanda')
-# plt.xlabel('Trade Balance In Millions of USD')
-# plt.ylabel('')
-# plt.savefig('../output/top10partners_rwa.png', dpi=300, bbox_inches='tight')
