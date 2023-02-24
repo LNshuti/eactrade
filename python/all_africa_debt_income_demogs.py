@@ -53,7 +53,7 @@ all_countries = ["REU", "RWA", "STP",	"SEN", 	"SYC", 	"SLE",
 # Write the code
 all_countries_df = all_countries_df[all_countries_df['location_code'].isin(all_countries)]
 
-all_africa_df = all_countries_df.sort_values(by='trade_bal_by_population', ascending=False)
+all_africa_df = all_countries_df.sort_values(by='trade_balance_millions', ascending=False)
 # convert to polars dataframe
 top10 = pl.from_pandas(all_africa_df)
 
@@ -61,9 +61,9 @@ all_countries_df_agg = (
     top10
     .groupby(['location_code'])
     .agg(
-        pl.col('trade_bal_by_population').mean().alias('avg_trade_bal_per_capita')
+        pl.col('trade_balance_millions').mean().alias('avg_trade_balance_millions')
         )
-        .sort('avg_trade_bal_per_capita', reverse=True)
+        .sort('avg_trade_balance_millions', reverse=True)
 )
 print(all_countries_df_agg.tail(20))
 
@@ -72,7 +72,7 @@ print(all_countries_df_agg.tail(20))
 fig, ax = plt.subplots(figsize=(8, 8))
 sns.set_style("whitegrid")
 
-sns.factorplot(x='avg_trade_bal_per_capita', y='location_code', data=all_countries_df_agg.to_pandas(), kind='bar')
+sns.factorplot(x='avg_trade_balance_millions', y='location_code', data=all_countries_df_agg.to_pandas(), kind='bar')
 plt.title('Trade balance per capita')
 plt.xlabel('USD')
 plt.ylabel('')
