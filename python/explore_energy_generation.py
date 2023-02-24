@@ -85,6 +85,9 @@ civ_df = top10_products(labelled_df, 'CIV')
 gnb_df = top10_products(labelled_df, 'GNB')
 lbr_df = top10_products(labelled_df, 'LBR')
 
+### All African Countries
+print(labelled_df['location_code'].unique())
+
 # Create a function that returns the top 10 trade partners by trade balance weighted by population for a given location_code
 # Convert the following code into a function 
 # The function takes a dataframe and a location_code as input
