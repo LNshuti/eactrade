@@ -26,7 +26,8 @@ Below we plot trade the 2020 trade balances for a select group of African countr
 ### East African Community (EAC)
 The East African Community consists of the following countries: Rwanda, Kenya, Uganda, Tanzania, Burundi, the Democratic Republic of Congo and South Sudan. Using 2021 data from the world bank, we plot annual exports/imports of goods only(not including services) of 5 of the EAC countries in **blue** with non-EAC country comparisons. 
 
-![eac_trade_goods](https://user-images.githubusercontent.com/13305262/221356870-a466ca64-0981-4284-8789-6156847449eb.png)
+
+![eac_trade_goods](https://user-images.githubusercontent.com/13305262/221357099-99bfd667-d185-4d6a-9bdd-f2213fb68e7d.png)
 
 
 ### All African Countries
