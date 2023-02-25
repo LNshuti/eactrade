@@ -33,8 +33,7 @@ The East African Community consists of the following countries: Rwanda, Kenya, U
 ### Rwanda
 
 Rwanda's top trade partners. 
-
-![rwanda_top_trade_partners](https://user-images.githubusercontent.com/13305262/221376917-b7676fb9-c606-4dc3-a5e6-bf81d591c365.png)
+![rwanda_top_trade_partners](https://user-images.githubusercontent.com/13305262/221377038-ca8d280d-4142-4ae9-8013-b53191944bf6.png)
 
 
 **References**
