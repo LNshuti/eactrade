@@ -81,7 +81,7 @@ print(all_africa_pl)
 # Write the code
 fig, ax = plt.subplots(figsize=(8, 8))
 sns.set_style("whitegrid")
-sns.catplot(x='trade_balance_millions', y='location_code', data=all_africa_pl.to_pandas(), kind='bar', height=8, aspect=1.5)
+sns.catplot(x='trade_balance_millions', y='location_code', data=all_africa_pl.to_pandas(), kind='bar', height=8, aspect=0.8)
 plt.title('')
 plt.xlabel('Trade balance $ Millions USD')
 plt.ylabel('')
