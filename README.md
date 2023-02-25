@@ -21,9 +21,9 @@ As in my [other work](https://github.com/LNshuti/LNSHUTI.github.io), I use the A
 **EDA: Exploratory Data Analysis**
 --------------------------------
 
-Below we plot trade relationships between a select group of African countries. For this plot, we sum data for 2020.
+Below we plot trade the 2020 trade balances for a select group of African countries. 
 
-In order to compare apples to apples, we need to weight the trade balance by population. This is because countries with larger populations tend to have larger trade balances.
+In order to compare apples to apples, we need to weight the trade balance by population. This is because countries with larger populations tend to have larger trade balances. 
 
 ### East African Community (EAC)
 ![](output/avg_trade_bal_per_capita.png)
