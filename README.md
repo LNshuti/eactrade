@@ -24,7 +24,10 @@ As in my [other work](https://github.com/LNshuti/LNSHUTI.github.io), I use the A
 Below we plot trade the 2020 trade balances for a select group of African countries. In order to compare apples to apples, we need to weight the trade balance by population. This is because countries with larger populations tend to have larger trade balances. 
 
 ### East African Community (EAC)
-![](output/avg_trade_bal_per_capita.png)
+The East African Community consists of the following countries: Rwanda, Kenya, Uganda, Tanzania, Burundi, the Democratic Republic of Congo and South Sudan. Using 2021 data from the world bank, we plot annual exports/imports of goods only(not including services) of 5 of the EAC countries in **blue** with non-EAC country comparisons. 
+
+![eac_trade_goods](https://user-images.githubusercontent.com/13305262/221356870-a466ca64-0981-4284-8789-6156847449eb.png)
+
 
 ### All African Countries
 ![](output/trade_bal_by_population_allafrica.png)
