@@ -36,8 +36,8 @@ Rwanda's top trade partners. With these countries, Rwanda exported more than it 
 ![rwanda_top_trade_partners](https://user-images.githubusercontent.com/13305262/221377782-41e9b06f-fcf7-49f7-8302-6c118a72bb68.png)
  
  **Negative trade balance**
- 
-![rwanda_bottom_trade_partners](https://user-images.githubusercontent.com/13305262/221378423-218065f0-7ebf-4a8e-9a40-443a32b780bb.png)
+ ![rwanda_bottom_trade_partners](https://user-images.githubusercontent.com/13305262/221378620-76d3446f-29d3-4d33-8187-81a95bcc3034.png)
+
 
 **References**
 --------------
