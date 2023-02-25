@@ -24,7 +24,7 @@ labelled_df = labelled_df.groupby(['year','location_code', 'parent_code', 'partn
 
 # Merge the population data to the trade data
 # Only keep the population data for 2020 
-# Write the code
+
 pop_data = pop_data[['Country Code', 'Country Name', '2020']]
 
 # Rename 2020 to pop_2020
@@ -58,9 +58,9 @@ all_africa_df = all_countries_df.sort_values(by='trade_balance_millions', ascend
 
 # Calculate the average trade balance per country 
 # Write the code
-all_africa_df = all_africa_df.groupby(['location_code'])['trade_balance_millions'].sum().reset_index()
+all_africa_df_sum = all_africa_df.groupby(['location_code'])['trade_balance_millions'].sum().reset_index()
 # Sort by descending trade balance
-all_africa_df = all_africa_df.sort_values(by='trade_balance_millions', ascending=False)
+all_africa_df_sum = all_africa_df_sum.sort_values(by='trade_balance_millions', ascending=False)
 
 
 # convert to polars dataframe
@@ -78,14 +78,16 @@ all_africa_pl = pl.from_pandas(all_africa_df)
 print(all_africa_pl)
 
 # Convert polars table to png and save to output 
-# Write the code
 fig, ax = plt.subplots(figsize=(8, 8))
 sns.set_style("whitegrid")
-sns.catplot(x='trade_balance_millions', y='location_code', data=all_africa_pl.to_pandas(), kind='bar', height=8, aspect=0.8)
+#sns.catplot(x='trade_balance_millions', y='location_code', data=all_africa_pl.to_pandas(), kind='bar', height=8, aspect=0.8)
 plt.title('')
 plt.xlabel('Trade balance $ Millions USD')
 plt.ylabel('')
-plt.savefig('../output/trade_bal_by_population_allafrica.png', dpi=300, bbox_inches='tight')
+ax2 = plt.twinx()
+sns.catplot(x='pop_2020', y='location_code', data=all_africa_pl.to_pandas(), kind='bar', height=8, aspect=0.8)
+#sns.lineplot(data=all_africa_pl.column2, color="b", ax=ax2)
+plt.savefig('../output/population_2020_allafrica.png', dpi=300, bbox_inches='tight')
 
 
 # Convert polars table to png and save to output 
