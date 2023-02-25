@@ -61,22 +61,23 @@ all_countries_df_agg = (
     top10
     .groupby(['location_code'])
     .agg(
-        pl.col('trade_balance_millions').mean().alias('avg_trade_balance_millions')
+        pl.col('trade_balance_millions').mean().alias('avg_trade_balance_millions'), 
+        pl.col('trade_balance'.mean().alias("avg_trade_balance"))
         )
         .sort('avg_trade_balance_millions', reverse=True)
 )
-print(all_countries_df_agg.tail(20))
+print(top10.tail(20))
 
 # Convert polars table to png and save to output 
 # Write the code
-fig, ax = plt.subplots(figsize=(8, 8))
-sns.set_style("whitegrid")
+# fig, ax = plt.subplots(figsize=(8, 8))
+# sns.set_style("whitegrid")
 
-sns.factorplot(x='avg_trade_balance_millions', y='location_code', data=all_countries_df_agg.to_pandas(), kind='bar')
-plt.title('Trade balance per capita')
-plt.xlabel('USD')
-plt.ylabel('')
-plt.savefig('../output/trade_bal_by_population_allafrica.png', dpi=200, bbox_inches='tight')
+# sns.catplot(x='avg_trade_balance_millions', y='location_code', data=all_countries_df_agg.to_pandas(), kind='bar')
+# plt.title('Trade balance per capita')
+# plt.xlabel('USD')
+# plt.ylabel('')
+# plt.savefig('../output/trade_bal_by_population_allafrica.png', dpi=200, bbox_inches='tight')
 
 
 # Convert polars table to png and save to output 
