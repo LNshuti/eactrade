@@ -41,13 +41,4 @@ Rwanda's top trade partners. With these countries, Rwanda exported more than it 
 
 **References**
 --------------
-- Use Vaex and Streamlit to accomodate very large file sizes. https://vaex.io/blog/vaex-plus-streamlit-where-simplicity-meets-big-data
-
-- Hastie, T., Tibshirani, R., Friedman, J.H. and Friedman, J.H., 2009. The elements of statistical learning: data mining, inference, and prediction (Vol. 2, pp. 1-758). New York: springer.
-
-- Sadler, Jesse. Network Analysis with R. https://www.jessesadler.com/post/network-analysis-with-r/
-
-- Katherine Ognyanova. Network analysis with R and igraph: NetSci X Tutorial.
-  https://kateto.net/networks-r-igraph
-  
 - The Growth Lab at Harvard University. International Trade Data (SITC, Rev. 2). 2019-05-31. 2019. V5. Harvard Dataverse. URL. https://doi.org/10.7910/DVN/H8SFD2. doi/10.7910/DVN/H8SFD2
