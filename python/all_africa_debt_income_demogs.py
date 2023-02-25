@@ -59,6 +59,9 @@ all_africa_df = all_countries_df.sort_values(by='trade_balance_millions', ascend
 # Calculate the average trade balance per country 
 # Write the code
 all_africa_df = all_africa_df.groupby(['location_code'])['trade_balance_millions'].mean().reset_index()
+# Sort by descending trade balance
+all_africa_df = all_africa_df.sort_values(by='trade_balance_millions', ascending=False)
+
 
 # convert to polars dataframe
 all_africa_pl = pl.from_pandas(all_africa_df)
@@ -78,7 +81,7 @@ print(all_africa_pl)
 # Write the code
 fig, ax = plt.subplots(figsize=(8, 8))
 sns.set_style("whitegrid")
-sns.catplot(x='trade_balance_millions', y='location_code', data=all_africa_pl.to_pandas(), kind='bar')
+sns.catplot(x='trade_balance_millions', y='location_code', data=all_africa_pl.to_pandas(), kind='bar', height=8, aspect=1.5)
 plt.title('Trade balance $ Millions')
 plt.xlabel('USD')
 plt.ylabel('')
