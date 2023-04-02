@@ -1,13 +1,5 @@
 ## Using Network Analysis to Understand International trade
 
-**Definitions**
-------------------------
-**A random graph** has two parameters: *N* and *P* where *N* represents the number of nodes, and *P* the probability distribution that connects a given set of nodes. **A node** is a vertex of a graph while **An edge** is a connection or link between **nodes**.
-
-To perform network analysis in R, we use two packages; *tidygraph* and *ggraph*, both of which support common graph data structures implemented in the *igraph* R package.
-
-One property of great interest in network analysis is **Community** defined as a subset of nodes with stronger connections than usual. In our analysis, we attempt to detect communities of trading partners based on the flow of goods betweeen countries. For example, we would like to test whether we can infer existing communities such as the **EAC** and **ECOWAS** based on the data.
-
 A country is said to have a trade *imbalance* if the country imports more than it exports. By calculating the trade balance, we can express trade relationship between countries as an undirected graph a.k.a a **Markov network** in statistical literature.
 
 ```
@@ -20,6 +12,23 @@ As in my [other work](https://github.com/LNshuti/LNSHUTI.github.io), I use the A
 
 **EDA: Exploratory Data Analysis**
 --------------------------------
+
+**Demographics**
+| Indicator | Rwanda Population Data |					
+|----------------------------------------------------|------------------------|					
+| Total Population (2020) | 12,952,218 |					
+| Population growth (annual %) (2020) | 2.58 |					
+| Urban population (% of total population) (2020) | 17.57 |					
+| Rural population (% of total population) (2020) | 82.43 |					
+| Population density (people per sq. km of land area) (2020) | 525.22 |					
+| Age Dependency Ratio (% of working-age population) (2020) | 73.59 |					
+| Fertility rate, total (births per woman) (2018) | 4.0 |					
+| Poverty headcount ratio at national poverty lines (% of population) (2016-2017) | 38.2 |					
+| Life expectancy at birth, total (years) (2018) | 68.7 |					
+| Population, ages 0-14 (% of total) (2020) | 39.57 |					
+| Population, ages 15-64 (% of total) (2020) | 56.14 |					
+| Population, ages 65 and above (% of total) (2020) | 4.29 |					
+					
 
 Below we plot trade the 2020 trade balances for a select group of African countries. In order to compare apples to apples, we need to weight the trade balance by population. This is because countries with larger populations tend to have larger trade balances. 
 
