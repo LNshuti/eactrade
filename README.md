@@ -28,7 +28,21 @@ As in my [other work](https://github.com/LNshuti/LNSHUTI.github.io), I use the A
 | Population, ages 0-14 (% of total) (2020) | 39.57 |					
 | Population, ages 15-64 (% of total) (2020) | 56.14 |					
 | Population, ages 65 and above (% of total) (2020) | 4.29 |					
-					
+
+
+| Indicator                              | Uganda Population Data          | Year |
+|-----------------------------------------|----------------|------|
+| Total Population                       | 45,741,007     | 2020 |
+| Population Growth Rate (annual %)      | 3.15%          | 2020 |
+| Male Population                        | 22,800,493     | 2020 |
+| Female Population                      | 22,940,514     | 2020 |
+| Urban Population                       | 9,330,403      | 2020 |
+| Rural Population                       | 36,410,604     | 2020 |
+| Population Density (people per sq. km) | 229.69         | 2020 |
+| Age Dependency Ratio                   | 100.88         | 2020 |
+| Youth Literacy Rate (15-24 years)      | 82.25%         | 2018 |
+| Life Expectancy at Birth               | 63.37 years    | 2020 |
+
 
 Below we plot trade the 2020 trade balances for a select group of African countries. In order to compare apples to apples, we need to weight the trade balance by population. This is because countries with larger populations tend to have larger trade balances. 
 
