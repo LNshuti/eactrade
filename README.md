@@ -30,18 +30,18 @@ As in my [other work](https://github.com/LNshuti/LNSHUTI.github.io), I use the A
 | Population, ages 65 and above (% of total) (2020) | 4.29 |					
 
 
-| Indicator                              | Uganda Population Data          | Year |
+| Indicator                              | Uganda Population Data          |
 |-----------------------------------------|----------------|------|
-| Total Population                       | 45,741,007     | 2020 |
-| Population Growth Rate (annual %)      | 3.15%          | 2020 |
-| Male Population                        | 22,800,493     | 2020 |
-| Female Population                      | 22,940,514     | 2020 |
-| Urban Population                       | 9,330,403      | 2020 |
-| Rural Population                       | 36,410,604     | 2020 |
-| Population Density (people per sq. km) | 229.69         | 2020 |
-| Age Dependency Ratio                   | 100.88         | 2020 |
-| Youth Literacy Rate (15-24 years)      | 82.25%         | 2018 |
-| Life Expectancy at Birth               | 63.37 years    | 2020 |
+| Total Population  (2020)                       | 45,741,007     | 
+| Population Growth Rate (annual %)  (2020)          | 3.15%          |
+| Male Population  (2020)                            | 22,800,493     | 
+| Female Population  (2020)                          | 22,940,514     | 
+| Urban Population  (2020)                            | 9,330,403      | 
+| Rural Population   (2020)                         | 36,410,604     | 
+| Population Density (people per sq. km) (2020)      | 229.69         | 
+| Age Dependency Ratio   (2020)                     | 100.88         | 
+| Youth Literacy Rate (15-24 years) (2020)          | 82.25%         | 
+| Life Expectancy at Birth   (2020)                 | 63.37 years    | 
 
 **Summary table for the population of Kenya** 
 
