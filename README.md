@@ -14,8 +14,7 @@ As in my [other work](https://github.com/LNshuti/LNSHUTI.github.io), I use the A
 --------------------------------
 
 **Demographics**
-| Indicator | Rwanda Population Data |					
-|----------------------------------------------------|				
+| Indicator | Rwanda Population Data |							
 | Total Population (2020) | 12,952,218 |					
 | Population growth (annual %) (2020) | 2.58 |					
 | Urban population (% of total population) (2020) | 17.57 |					
