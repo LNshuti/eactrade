@@ -14,33 +14,6 @@ As in my [other work](https://github.com/LNshuti/LNSHUTI.github.io), I use the A
 --------------------------------
 
 **Demographics**
-| Indicator | Rwanda Population Data |							
-| Total Population (2020) | 12,952,218 |					
-| Population growth (annual %) (2020) | 2.58 |					
-| Urban population (% of total population) (2020) | 17.57 |					
-| Rural population (% of total population) (2020) | 82.43 |					
-| Population density (people per sq. km of land area) (2020) | 525.22 |					
-| Age Dependency Ratio (% of working-age population) (2020) | 73.59 |					
-| Fertility rate, total (births per woman) (2018) | 4.0 |					
-| Poverty headcount ratio at national poverty lines (% of population) (2016-2017) | 38.2 |					
-| Life expectancy at birth, total (years) (2018) | 68.7 |					
-| Population, ages 0-14 (% of total) (2020) | 39.57 |					
-| Population, ages 15-64 (% of total) (2020) | 56.14 |					
-| Population, ages 65 and above (% of total) (2020) | 4.29 |					
-
-
-| Indicator                              | Uganda Population Data          |
-|-----------------------------------------|----------------|------|
-| Total Population  (2020)                       | 45,741,007     | 
-| Population Growth Rate (annual %)  (2020)          | 3.15%          |
-| Male Population  (2020)                            | 22,800,493     | 
-| Female Population  (2020)                          | 22,940,514     | 
-| Urban Population  (2020)                            | 9,330,403      | 
-| Rural Population   (2020)                         | 36,410,604     | 
-| Population Density (people per sq. km) (2020)      | 229.69         | 
-| Age Dependency Ratio   (2020)                     | 100.88         | 
-| Youth Literacy Rate (15-24 years) (2020)          | 82.25%         | 
-| Life Expectancy at Birth   (2020)                 | 63.37 years    | 
 
 **Summary table for the population of Kenya** 
 
