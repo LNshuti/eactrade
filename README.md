@@ -36,7 +36,7 @@ As in my [other work](https://github.com/LNshuti/LNSHUTI.github.io), I use the A
 | Urban population (% of total population) (2020)             | 17.57                 |25%                   |
 | Rural population (% of total population) (2020)             | 82.43                 | 75%                  |
 | Population density (people per sq. km of land area) (2020)  | 525.22                | 229.69                 |
-| Age Dependency Ratio (% of working-age population) (2020)   | 73.59                 |  90%                |
+| Age Dependency Ratio (% of working-age population) (2020)   | 73.59 %                 |  90%                |
 
 
 Below we plot trade the 2020 trade balances for a select group of African countries. In order to compare apples to apples, we need to weight the trade balance by population. This is because countries with larger populations tend to have larger trade balances. 
