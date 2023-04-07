@@ -55,6 +55,26 @@ As in my [other work](https://github.com/LNshuti/LNSHUTI.github.io), I use the A
 | 2016 | 48,895,434    | 2.99%           | 1,422,713     | -20,000       | 18.9       | 4.09           | 82.0               |
 | 2015 | 47,476,954    | 3.20%           | 1,489,934     | -20,000       | 18.5       | 4.35           | 79.7               |
 
+| Indicator                                                  | Rwanda Population Data | Uganda Population Data |
+|-------------------------------------------------------------|-----------------------|------------------------|
+| Total Population (2020)                                     | 12,952,218            | 45,741,007             |
+| Population growth (annual %) (2020)                         | 2.58                  | 3.15%                 |
+| Urban population (% of total population) (2020)             | 17.57                 | N/A                    |
+| Rural population (% of total population) (2020)             | 82.43                 | N/A                    |
+| Population density (people per sq. km of land area) (2020)  | 525.22                | 229.69                 |
+| Age Dependency Ratio (% of working-age population) (2020)   | 73.59                 | 100.88                 |
+| Fertility rate, total (births per woman) (2018)             | 4.0                   | N/A                    |
+| Poverty headcount ratio at national poverty lines (% of population) (2016-2017) | 38.2                | N/A                    |
+| Life expectancy at birth, total (years) (2018)              | 68.7                  | N/A                    |
+| Population, ages 0-14 (% of total) (2020)                   | 39.57                 | N/A                    |
+| Population, ages 15-64 (% of total) (2020)                  | 56.14                 | N/A                    |
+| Population, ages 65 and above (% of total) (2020)           | 4.29                  | N/A                    |
+| Male Population (2020)                                       | N/A                   | 22,800,493             |
+| Female Population (2020)                                     | N/A                   | 22,940,514             |
+| Urban Population (2020)                                      | N/A                   | 9,330,403              |
+| Rural Population (2020)                                      | N/A                   | 36,410,604             |
+| Youth Literacy Rate (15-24 years) (2020)                     | N/A                   | 82.25%                 |
+| Life Expectancy at Birth (2020)                              | N/A                   | 63.37 years            |
 
 Below we plot trade the 2020 trade balances for a select group of African countries. In order to compare apples to apples, we need to weight the trade balance by population. This is because countries with larger populations tend to have larger trade balances. 
 
