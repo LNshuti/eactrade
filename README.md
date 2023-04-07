@@ -81,16 +81,6 @@ The East African Community consists of the following countries: Rwanda, Kenya, U
 
 ![eac_trade_goods](https://user-images.githubusercontent.com/13305262/221357099-99bfd667-d185-4d6a-9bdd-f2213fb68e7d.png)
 
-## Individual country summary
-
-Rwanda's top trade partners. With these countries, Rwanda exported more than it imported. This means that Rwanda had a **positive** trade balance.  
-
-![rwanda_top_trade_partners](https://user-images.githubusercontent.com/13305262/221377782-41e9b06f-fcf7-49f7-8302-6c118a72bb68.png)
- 
- **Negative trade balance**
-![rwanda_bottom_trade_partners](https://user-images.githubusercontent.com/13305262/221378709-f9ab5605-cb23-4146-957e-2f1ebbda8e9f.png)
-
-
 **References**
 --------------
 - The Growth Lab at Harvard University. International Trade Data (SITC, Rev. 2). 2019-05-31. 2019. V5. Harvard Dataverse. URL. https://doi.org/10.7910/DVN/H8SFD2. doi/10.7910/DVN/H8SFD2
