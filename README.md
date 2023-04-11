@@ -47,6 +47,13 @@ The East African Community consists of the following countries: Rwanda, Kenya, U
 
 ![eac_trade_goods](https://user-images.githubusercontent.com/13305262/221357099-99bfd667-d185-4d6a-9bdd-f2213fb68e7d.png)
 
+
+**Exports by Country**
+
+
+**Exports by Country Adjusted by Population**
+
+
 **References**
 --------------
 - The Growth Lab at Harvard University. International Trade Data (SITC, Rev. 2). 2019-05-31. 2019. V5. Harvard Dataverse. URL. https://doi.org/10.7910/DVN/H8SFD2. doi/10.7910/DVN/H8SFD2
