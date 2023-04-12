@@ -50,6 +50,13 @@ The East African Community consists of the following countries: Rwanda, Kenya, U
 
 **Exports by Country**
 
+**Kenya**
+
+**Uganda**
+
+**Tanzania**
+
+**Rwanda**
 
 **Exports by Country Adjusted by Population**
 
