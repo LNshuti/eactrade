@@ -47,21 +47,7 @@ The East African Community consists of the following countries: Rwanda, Kenya, U
 
 ![eac_trade_goods](https://user-images.githubusercontent.com/13305262/221357099-99bfd667-d185-4d6a-9bdd-f2213fb68e7d.png)
 
-
-**Exports by Country**
-
-**Kenya**
-
-**Uganda**
-
-**Tanzania**
-
-**Rwanda**
-
-**Exports by Country Adjusted by Population**
-
-**Imports by Country and Product**
-
+## **Imports by Country and Product**
 
 **Agricultural Products**
 -------------------------
