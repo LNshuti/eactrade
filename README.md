@@ -60,6 +60,11 @@ The East African Community consists of the following countries: Rwanda, Kenya, U
 
 ![What did Kenya import in 2020](https://user-images.githubusercontent.com/13305262/231682205-facefe08-d19c-48dc-99a8-43c5e5b0b851.png)
 
+**Uganda**
+
+![What did Uganda import in 2020](https://user-images.githubusercontent.com/13305262/231684963-ba59c419-0b72-48ec-a8a4-0364fd2055a9.png)
+
+
 
 **References**
 --------------
