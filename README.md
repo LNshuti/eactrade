@@ -29,7 +29,7 @@ I use the Atlas of Economic Complexity from the Growth Lab at Harvard University
 
 **The population of Rwanda and Uganda** 
 
-| Indicator                                                  | Rwanda Population Data | Uganda Population Data |
+| Indicator                                                  | Rwanda   | Uganda   |
 |-------------------------------------------------------------|-----------------------|------------------------|
 | Total Population (2020)                                     | 12,952,218            | 45,741,007             |
 | Population growth (annual %) (2020)                         | 2.58                  | 3.15%                 |
