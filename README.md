@@ -1,6 +1,6 @@
 ## Using Network Analysis to Understand International trade
 
-A country is said to have a trade *imbalance* if the country imports more than it exports. By calculating the trade balance, we can express trade relationship between countries as an undirected graph a.k.a a **Markov network** in statistical literature.
+A country is said to have a trade *imbalance* if the country imports more than it exports. 
 
 ```
 Trade balance = exports - imports
@@ -8,14 +8,14 @@ Trade balance = exports - imports
 
 **Data Source**
 ---------------
-As in my [other work](https://github.com/LNshuti/LNSHUTI.github.io), I use the Atlas of Economic Complexity from the Growth Lab at Harvard University because this data source is: 1) Detailed down to the product level that each country in the World trades from 1962 to 2019. 2) Standardized to simplify the process of building time series to track changes over time. 3) Regularly used and highly cited source with over *eighty thousand downloads*. It is also publicly available and can be downloaded [**here.**](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/H8SFD2)
+I use the Atlas of Economic Complexity from the Growth Lab at Harvard University because this data source is: 1) Detailed down to the product level that each country in the World trades from 1962 to 2019. 2) Standardized to simplify the process of building time series to track changes over time. 3) Regularly used and highly cited source with over *eighty thousand downloads*. It is also publicly available and can be downloaded [**here.**](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/H8SFD2)
 
 **EDA: Exploratory Data Analysis**
 --------------------------------
 
 **Demographics**
 
-**Summary table for the population of Kenya** 
+**The population of Kenya** 
 
 | Year | Population    | Yearly % Change | Yearly Change | Migrants (net) | Median Age | Fertility Rate | Population Density |
 |------|---------------|-----------------|---------------|---------------|------------|----------------|--------------------|
@@ -27,7 +27,7 @@ As in my [other work](https://github.com/LNshuti/LNSHUTI.github.io), I use the A
 | 2016 | 48,895,434    | 2.99%           | 1,422,713     | -20,000       | 18.9       | 4.09           | 82.0               |
 | 2015 | 47,476,954    | 3.20%           | 1,489,934     | -20,000       | 18.5       | 4.35           | 79.7               |
 
-**Summary table for the population of Rwanda and Uganda** 
+**The population of Rwanda and Uganda** 
 
 | Indicator                                                  | Rwanda Population Data | Uganda Population Data |
 |-------------------------------------------------------------|-----------------------|------------------------|
