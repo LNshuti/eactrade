@@ -1,19 +1,23 @@
-## Using Network Analysis to Understand International trade
+## Using Network Analysis to Understand International trade: East African Community case study
 
-A country is said to have a trade *imbalance* if the country imports more than it exports. 
+### Definitions
+
+**The East African Community (EAC)** consists of the following countries: *Rwanda, Kenya, Uganda, Tanzania, Burundi, the Democratic Republic of Congo and South Sudan*.
+
+A country is said to have a *trade imbalance* if the country imports more than it exports. 
 
 ```
 Trade balance = exports - imports
 ```
 
-**Data Source**
+### **Data Source**
 ---------------
 I use the Atlas of Economic Complexity from the Growth Lab at Harvard University because this data source is: 1) Detailed down to the product level that each country in the World trades from 1962 to 2019. 2) Standardized to simplify the process of building time series to track changes over time. 3) Regularly used and highly cited source with over *eighty thousand downloads*. It is also publicly available and can be downloaded [**here.**](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/H8SFD2)
 
-**EDA: Exploratory Data Analysis**
+### **EDA: Exploratory Data Analysis**
 --------------------------------
 
-**Demographics**
+#### **Demographics**
 
 **The population of Kenya** 
 
@@ -51,15 +55,8 @@ I use the Atlas of Economic Complexity from the Growth Lab at Harvard University
 
 ![image](https://github.com/LNshuti/eactrade/assets/13305262/7ad44a11-b32a-487c-9a6a-d48ccaf18c64)
 
-Below we plot trade the 2020 trade balances for a select group of African countries. In order to compare apples to apples, we need to weight the trade balance by population. This is because countries with larger populations tend to have larger trade balances. 
 
-### East African Community (EAC)
-The East African Community consists of the following countries: Rwanda, Kenya, Uganda, Tanzania, Burundi, the Democratic Republic of Congo and South Sudan. Using 2021 data from the world bank, we plot annual exports/imports of goods only(not including services) of 4 East African countries in **blue** with non-EAC country comparisons. 
-
-
-![eac_trade_goods](https://user-images.githubusercontent.com/13305262/221357099-99bfd667-d185-4d6a-9bdd-f2213fb68e7d.png)
-
-## **Imports by Country and Product**
+### **Imports by Country and Product**
 
 **Agricultural Products**
 -------------------------
@@ -84,6 +81,6 @@ The East African Community consists of the following countries: Rwanda, Kenya, U
 ![What did Eastern Africa export in 2020](https://user-images.githubusercontent.com/13305262/234193116-48032fe5-74b0-42d5-8a4b-ebefb8216a5f.png)
 
 
-**References**
+### **References**
 --------------
 - The Growth Lab at Harvard University. International Trade Data (SITC, Rev. 2). 2019-05-31. 2019. V5. Harvard Dataverse. URL. https://doi.org/10.7910/DVN/H8SFD2. doi/10.7910/DVN/H8SFD2
