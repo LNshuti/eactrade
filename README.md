@@ -28,6 +28,7 @@ I use the Atlas of Economic Complexity from the Growth Lab at Harvard University
 | 2015 | 47,476,954    | 3.20%           | 1,489,934     | -20,000       | 18.5       | 4.35           | 79.7               |
 
 **Kenyan Population Desnity Map: 2023**
+
 ![image](https://github.com/LNshuti/eactrade/assets/13305262/5e30e135-ab02-4d73-b47d-e63d2283d37e)
 
 
