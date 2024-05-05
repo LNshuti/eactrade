@@ -1,4 +1,4 @@
-## Using Network Analysis to Understand International trade: East African Community case study
+## Analyzing International Trade Networks: A Case Study of the East African Community
 
 ### Definitions
 
