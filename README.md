@@ -1,7 +1,5 @@
 ## Analyzing International Trade Networks: A Case Study of the East African Community
 
-### Definitions
-
 **The East African Community (EAC)** consists of the following countries: *Rwanda, Kenya, Uganda, Tanzania, Burundi, the Democratic Republic of Congo and South Sudan*.
 
 A country is said to have a *trade imbalance* if the country imports more than it exports. 
