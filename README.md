@@ -42,7 +42,10 @@ I use the Atlas of Economic Complexity from the Growth Lab at Harvard University
 | Population density (people per sq. km of land area) (2020)  | 525.22                | 229.69                 |
 | Age Dependency Ratio (% of working-age population) (2020)   | 73.59 %                 |  90%                |
 
+**Uganda Population Density**
+![image](https://github.com/LNshuti/eactrade/assets/13305262/7cf00c48-1dce-4157-9fef-10b6ded35e2a)
 
+**Rwanda Population Density**
 Below we plot trade the 2020 trade balances for a select group of African countries. In order to compare apples to apples, we need to weight the trade balance by population. This is because countries with larger populations tend to have larger trade balances. 
 
 ### East African Community (EAC)
