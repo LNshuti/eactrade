@@ -1,6 +1,6 @@
 ## Analyzing International Trade Networks: A Case Study of the East African Community
 
-**The East African Community (EAC)** consists of the following countries: *Rwanda, Kenya, Uganda, Tanzania, Burundi, the Democratic Republic of Congo and South Sudan*.
+**The East African Community (EAC)** consists of the following countries: **Rwanda, Kenya, Uganda, Tanzania, Burundi, the Democratic Republic of Congo and South Sudan**.
 
 A country is said to have a *trade imbalance* if the country imports more than it exports. 
 
@@ -56,19 +56,19 @@ I use the Atlas of Economic Complexity from the Growth Lab at Harvard University
 ### **Imports of Agricultural Products**
 -------------------------
 
-**Rwanda**
+#### **Rwanda**
 
 ![What did Rwanda import in 2020](https://user-images.githubusercontent.com/13305262/231676481-8cc5d45b-f932-4097-8dc3-b5945debf168.png)
 
-**Kenya**
+#### **Kenya**
 
 ![What did Kenya import in 2020](https://user-images.githubusercontent.com/13305262/231682205-facefe08-d19c-48dc-99a8-43c5e5b0b851.png)
 
-**Uganda**
+#### **Uganda**
 
 ![What did Uganda import in 2020](https://user-images.githubusercontent.com/13305262/231684963-ba59c419-0b72-48ec-a8a4-0364fd2055a9.png)
 
-**Tanzania**
+#### **Tanzania**
 
 ![What did Tanzania import in 2020](https://user-images.githubusercontent.com/13305262/231685703-fe1a48e0-283e-4401-ac94-f3a43b394a9e.png)
 
