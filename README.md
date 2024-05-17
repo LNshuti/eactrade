@@ -17,7 +17,7 @@ I use the Atlas of Economic Complexity from the Growth Lab at Harvard University
 
 #### **Demographics**
 
-**The population of Kenya** 
+##### **Kenya** 
 
 | Year | Population    | Yearly % Change | Yearly Change | Migrants (net) | Median Age | Fertility Rate | Population Density |
 |------|---------------|-----------------|---------------|---------------|------------|----------------|--------------------|
@@ -34,7 +34,7 @@ I use the Atlas of Economic Complexity from the Growth Lab at Harvard University
 ![image](https://github.com/LNshuti/eactrade/assets/13305262/5e30e135-ab02-4d73-b47d-e63d2283d37e)
 
 
-**The population of Rwanda and Uganda** 
+##### **Rwanda and Uganda** 
 
 | Indicator                                                  | Rwanda   | Uganda   |
 |-------------------------------------------------------------|-----------------------|------------------------|
@@ -45,11 +45,11 @@ I use the Atlas of Economic Complexity from the Growth Lab at Harvard University
 | Population density (people per sq. km of land area) (2020)  | 525.22                | 229.69                 |
 | Age Dependency Ratio (% of working-age population) (2020)   | 73.59 %                 |  90%                |
 
-**Uganda Population Density**
+######  **Uganda Population Density**
 
 ![image](https://github.com/LNshuti/eactrade/assets/13305262/7cf00c48-1dce-4157-9fef-10b6ded35e2a)
 
-**Rwanda Population Density**
+###### **Rwanda Population Density**
 
 ![image](https://github.com/LNshuti/eactrade/assets/13305262/7ad44a11-b32a-487c-9a6a-d48ccaf18c64)
 
