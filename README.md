@@ -53,10 +53,7 @@ I use the Atlas of Economic Complexity from the Growth Lab at Harvard University
 
 ![image](https://github.com/LNshuti/eactrade/assets/13305262/7ad44a11-b32a-487c-9a6a-d48ccaf18c64)
 
-
-### **Imports by Country and Product**
-
-**Agricultural Products**
+### **Imports of Agricultural Products**
 -------------------------
 
 **Rwanda**
@@ -74,9 +71,6 @@ I use the Atlas of Economic Complexity from the Growth Lab at Harvard University
 **Tanzania**
 
 ![What did Tanzania import in 2020](https://user-images.githubusercontent.com/13305262/231685703-fe1a48e0-283e-4401-ac94-f3a43b394a9e.png)
-
-**Combined Chart**
-![What did Eastern Africa export in 2020](https://user-images.githubusercontent.com/13305262/234193116-48032fe5-74b0-42d5-8a4b-ebefb8216a5f.png)
 
 
 ### **References**
