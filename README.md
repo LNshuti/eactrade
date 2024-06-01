@@ -53,25 +53,6 @@ I use the Atlas of Economic Complexity from the Growth Lab at Harvard University
 
 ![image](https://github.com/LNshuti/eactrade/assets/13305262/7ad44a11-b32a-487c-9a6a-d48ccaf18c64)
 
-### **Imports of Agricultural Products**
--------------------------
-
-#### **Rwanda**
-
-![What did Rwanda import in 2020](https://user-images.githubusercontent.com/13305262/231676481-8cc5d45b-f932-4097-8dc3-b5945debf168.png)
-
-#### **Kenya**
-
-![What did Kenya import in 2020](https://user-images.githubusercontent.com/13305262/231682205-facefe08-d19c-48dc-99a8-43c5e5b0b851.png)
-
-#### **Uganda**
-
-![What did Uganda import in 2020](https://user-images.githubusercontent.com/13305262/231684963-ba59c419-0b72-48ec-a8a4-0364fd2055a9.png)
-
-#### **Tanzania**
-
-![What did Tanzania import in 2020](https://user-images.githubusercontent.com/13305262/231685703-fe1a48e0-283e-4401-ac94-f3a43b394a9e.png)
-
 
 ### **References**
 --------------
