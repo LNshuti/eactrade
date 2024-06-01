@@ -53,7 +53,20 @@ I use the Atlas of Economic Complexity from the Growth Lab at Harvard University
 
 ![image](https://github.com/LNshuti/eactrade/assets/13305262/7ad44a11-b32a-487c-9a6a-d48ccaf18c64)
 
+Indicator | Rwanda | Uganda | Tanzania | Gabon | Congo Brazzaville | DRC
+--- | --- | --- | --- | --- | --- | ---
+Total Population (2020) | 12,952,218 | 45,741,007 | 59,734,218 | 2,225,734 | 5,518,092 | 89,561,403
+Population growth (annual %) (2020) | 2.58 | 3.15% | 2.98% | 3.51% | 2.56% | 3.07%
+Urban population (% of total population) (2020) | 17.57 | 25% | 35.08% | 89.51% | 66.83% | 45.05%
+Rural population (% of total population) (2020) | 82.43 | 75% | 64.92% | 10.49% | 33.17% | 54.95%
+Population density (people per sq. km of land area) (2020) | 525.22 | 229.69 | 67.87 | 9.36 | 16.19 | 40.07
+Age Dependency Ratio (% of working-age population) (2020) | 73.59% | 90% | 87.51% | 54.11% | 77.08% | 92.51%
 
 ### **References**
 --------------
 - The Growth Lab at Harvard University. International Trade Data (SITC, Rev. 2). 2019-05-31. 2019. V5. Harvard Dataverse. URL. https://doi.org/10.7910/DVN/H8SFD2. doi/10.7910/DVN/H8SFD2
+- https://2009-2017.state.gov/outofdate/bgn/congobrazzaville/108829.htm
+- https://www.cia.gov/the-world-factbook/countries/congo-republic-of-the/
+- https://www.worldbank.org/en/country/congo/overview
+- https://www.worldstatesmen.org/Congo-Brazzaville.html
+[5] https://sovereignlimits.com/boundaries/drc-tanzania-land
