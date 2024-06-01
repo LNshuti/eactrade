@@ -62,6 +62,12 @@ Rural population (% of total population) (2020) | 82.43 | 75% | 64.92% | 10.49% 
 Population density (people per sq. km of land area) (2020) | 525.22 | 229.69 | 67.87 | 9.36 | 16.19 | 40.07
 Age Dependency Ratio (% of working-age population) (2020) | 73.59% | 90% | 87.51% | 54.11% | 77.08% | 92.51%
 
+###### **Compare countries**
+
+![output (5)](https://github.com/LNshuti/eactrade/assets/13305262/016c7326-6cac-48d7-92db-e0967b419bab)
+
+
+
 ### **References**
 --------------
 - The Growth Lab at Harvard University. International Trade Data (SITC, Rev. 2). 2019-05-31. 2019. V5. Harvard Dataverse. URL. https://doi.org/10.7910/DVN/H8SFD2. doi/10.7910/DVN/H8SFD2
