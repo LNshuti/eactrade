@@ -59,7 +59,7 @@ Total Population (2020) | 12,952,218 | 45,741,007 | 59,734,218 | 2,225,734 | 5,5
 Population growth (annual %) (2020) | 2.58 | 3.15% | 2.98% | 3.51% | 2.56% | 3.07%
 Urban population (% of total population) (2020) | 17.57 | 25% | 35.08% | 89.51% | 66.83% | 45.05%
 Rural population (% of total population) (2020) | 82.43 | 75% | 64.92% | 10.49% | 33.17% | 54.95%
-<tr><td><b>Population density (people per sq. km of land area) (2020)</b></td><td><b>525.22</b></td><td><b>229.69</b></td><td><b>67.87</b></td><td><b>9.36</b></td><td><b>16.19</b></td><td><b>40.07</b></td></tr>
+Population density (people per sq. km of land area) (2020) | 525.22 | 229.69 | 67.87 | 9.36 | 16.19 | 40.07
 Age Dependency Ratio (% of working-age population) (2020) | 73.59% | 90% | 87.51% | 54.11% | 77.08% | 92.51%
 
 ### **References**
