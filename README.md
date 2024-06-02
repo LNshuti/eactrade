@@ -64,8 +64,7 @@ Age Dependency Ratio (% of working-age population) (2020) | 73.59% | 90% | 87.51
 
 ###### **Compare countries**
 
-![output (5)](https://github.com/LNshuti/eactrade/assets/13305262/016c7326-6cac-48d7-92db-e0967b419bab)
-
+![total_population_boxplot](https://github.com/LNshuti/eactrade/assets/13305262/c6373d75-5064-4a89-b66e-912c6ec55c11)
 
 
 ### **References**
