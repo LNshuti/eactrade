@@ -62,9 +62,9 @@ Rural population (% of total population) (2020) | 82.43 | 75% | 64.92% | 10.49% 
 Population density (people per sq. km of land area) (2020) | 525.22 | 229.69 | 67.87 | 9.36 | 16.19 | 40.07
 Age Dependency Ratio (% of working-age population) (2020) | 73.59% | 90% | 87.51% | 54.11% | 77.08% | 92.51%
 
-###### **Compare countries**
-
 ![total_population_boxplot](https://github.com/LNshuti/eactrade/assets/13305262/c6373d75-5064-4a89-b66e-912c6ec55c11)
+
+![population_metrics_colab](https://github.com/LNshuti/eactrade/assets/13305262/32d41582-66eb-4f4e-99b2-4512177e1aae)
 
 
 ### **References**
