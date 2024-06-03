@@ -71,4 +71,4 @@ Age Dependency Ratio (% of working-age population) (2020) | 73.59% | 90% | 87.51
 - https://www.cia.gov/the-world-factbook/countries/congo-republic-of-the/
 - https://www.worldbank.org/en/country/congo/overview
 - https://www.worldstatesmen.org/Congo-Brazzaville.html
-[5] https://sovereignlimits.com/boundaries/drc-tanzania-land
+- https://sovereignlimits.com/boundaries/drc-tanzania-land
