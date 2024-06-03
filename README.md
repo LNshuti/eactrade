@@ -64,6 +64,12 @@ Age Dependency Ratio (% of working-age population) (2020) | 73.59% | 90% | 87.51
 
 ![total_population_boxplot](https://github.com/LNshuti/eactrade/assets/13305262/c6373d75-5064-4a89-b66e-912c6ec55c11)
 
+**Compare Population Metrics for Several countries**
+
+**1. Age Dependency Ratio**
+
+![population_metrics_colab (2)](https://github.com/LNshuti/eactrade/assets/13305262/74020125-43e2-4af5-a29c-3197256b6fd0)
+
 ### **References**
 --------------
 - The Growth Lab at Harvard University. International Trade Data (SITC, Rev. 2). 2019-05-31. 2019. V5. Harvard Dataverse. URL. https://doi.org/10.7910/DVN/H8SFD2. doi/10.7910/DVN/H8SFD2
