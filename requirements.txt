@@ -1,0 +1,6 @@
+pyarrow
+polars
+pandas 
+squarify
+matplotlib
+seaborn 
