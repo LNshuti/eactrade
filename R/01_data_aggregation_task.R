@@ -1,5 +1,16 @@
 suppressMessages(suppressWarnings(source("R/manifest.R")))
 
+# Define S3 bucket and paths
+bucket <- "dataverse-files-parquet"
+input_path <- "dataverse_files"
+output_path <- "processed"
+processed_path <- paste0("s3://", bucket, "/", output_path, "/")
+
+# Function to read CSV from S3
+read_s3_csv <- function(bucket, object) {
+  s3read_using(FUN = read.csv, object = object, bucket = bucket)
+}
+
 country_ids <- 
   read_csv("data/countries_codes_and_coordinates.csv") %>%
   janitor::clean_names() %>%
