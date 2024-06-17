@@ -37,7 +37,7 @@ def convert_dta_to_parquet(dta_path, parquet_path):
         if filename.endswith('.dta'):
             file_path = os.path.join(dta_path, filename)
             df = pd.read_stata(file_path)
-            print(df.head())
+            #print(df.head())
             # Convert to Parquet
             parquet_filename = filename.replace('.dta', '.parquet')
             local_parquet_path = os.path.join(parquet_path, parquet_filename)
@@ -53,5 +53,5 @@ def convert_dta_to_parquet(dta_path, parquet_path):
 
 if __name__ == '__main__':
     dta_path = '../data/raw/'
-    parquet_path = './parquet_files'
+    parquet_path = '../processed/'
     convert_dta_to_parquet(dta_path, parquet_path)
