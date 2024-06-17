@@ -4,3 +4,4 @@ pandas
 squarify
 matplotlib
 seaborn 
+networkx
