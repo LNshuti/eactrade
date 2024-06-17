@@ -44,3 +44,5 @@ vignettes/*.pdf
 /data/raw/*
 
 .env
+
+processed/country_partner_sitcproduct4digit_year_2021.parquet
