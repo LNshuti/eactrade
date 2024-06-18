@@ -43,7 +43,7 @@ vignettes/*.pdf
 
 /data/raw/*
 /data/processed/*
-.ipynb_checkpoints
+.ipynb_checkpoints/*
 
 .env
 
