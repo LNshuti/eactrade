@@ -72,4 +72,3 @@ Age Dependency Ratio (% of working-age population) (2020) | 73.59% | 90% | 87.51
 ### **References**
 --------------
 - The Growth Lab at Harvard University. International Trade Data (SITC, Rev. 2). 2019-05-31. 2019. V5. Harvard Dataverse. URL. https://doi.org/10.7910/DVN/H8SFD2. doi/10.7910/DVN/H8SFD2
-- https://2009-2017.state.gov/outofdate/bgn/congobrazzaville/108829.htm
