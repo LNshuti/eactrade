@@ -42,6 +42,7 @@ vignettes/*.pdf
 /data/dataverse_files/*
 
 /data/raw/*
+/data/processed/*
 
 .env
 
