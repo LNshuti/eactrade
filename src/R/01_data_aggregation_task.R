@@ -1,4 +1,4 @@
-suppressMessages(suppressWarnings(source("R/manifest.R")))
+suppressMessages(suppressWarnings(source("src/R/manifest.R")))
 
 # Define S3 bucket and paths
 bucket <- "dataverse-files-parquet"
@@ -49,4 +49,4 @@ eaccountries_trade_df <-
   select(-location_id, -partner_id, -sitc_eci, -sitc_coi ) %>%
   select(from, to, everything())
 
-saveRDS(object = eaccountries_trade_df, "eactrade/data/processed/eac_trade_df_2015_2019.rds")
+#saveRDS(object = eaccountries_trade_df, "eactrade/data/processed/eac_trade_df_2015_2019.rds")
