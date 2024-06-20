@@ -1,5 +1,6 @@
 # Examples from the Networkx package by 
 # Carter T. Butts buttsc@uci.edu and David Hunter dhunter@stat.psu.edu
+suppressMessages(suppressWarnings(source("src/R/manifest.R")))
 
 # networks from data frames ===========================================================
 #* simple networks ====================================================================
